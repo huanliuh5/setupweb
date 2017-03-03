@@ -1,0 +1,297 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+
+.clearfix:after {
+    content: "0";
+    height: 0;
+    line-height: 0;
+    display: block;
+    clear: both;
+    visibility: hidden;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+.fl {
+    float: left;
+}
+
+/*上边部分=====================================*/
+.footer {
+    background-color:#353535;
+    height: 285px;
+}
+
+.footer .content {
+    height: 285px;
+    margin-left: 205px;
+}
+
+.footer .content .public {
+    color: #BEBDBD;
+    font-size: 15px;
+    margin: 23px 0;
+}
+
+.footer .content .con_bot {
+    width: 205px;
+    color: #8A8A8A;
+    font-size: 12px;
+    height: 12px;
+    line-height: 18px;
+}
+
+/*左边部分*/
+.footer .content .content_l {
+    width: 223px;
+    height: 284px;
+    /*background-color:#BEBDBD;*/
+    border-right: 1px solid #2D2D2D;
+}
+
+/*中间部分*/
+.footer .content .content_m {
+    width: 200px;
+    height: 284px;
+    /*background-color:#BEBDBD;*/
+    border-right: 1px solid #2D2D2D;
+    padding: 0 22px;
+}
+
+.footer .content .content_m a {
+    width: 53px;
+    height: 53px;
+    display: block;
+    border: 5px solid #404040;
+    float: left;
+    opacity: 0.5;
+}
+
+/*右边部分*/
+.footer .content .content_r {
+    width: 244px;
+    height: 284px;
+    /*background-color:#BEBDBD;*/
+    border-right: 1px solid #2D2D2D;
+    padding: 0 22px;
+    position: relative;
+}
+
+.footer .content .content_r span {
+    position: absolute;
+    top: 26px;
+    right: 50px;
+    font-size: 12px;
+    color: #888888;
+}
+
+.footer .content_r li {
+    float: left;
+    list-style: none;
+    width: 122px;
+}
+
+.footer .content_r li a {
+    color: #888888;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.footer .content_r li a:hover {
+    color: white;
+}
+
+/*二维码部分*/
+.footer .content .erweima {
+    padding-left: 22px;
+    width: 130px;
+    position: relative;
+
+}
+.footer .content .erweima #ewm_light {
+    position: absolute;
+    width: 112px;
+    height: 9px;
+    background-color: red;
+    background: url("../images/home-ewm-light_9b556af.png") no-repeat center 50%;
+    left:22px;
+    top:65px;
+}
+
+/*中间网页标题部分*/
+.footer .title {
+    height: 62px;
+    line-height: 62px;
+    color: #2F2F2F;
+    font-size: 24px;
+    font-weight: 900;
+    background-color: #FFAE00;
+    padding-left: 150px;
+}
+/*下边友情连接部分*/
+.footer .link{
+    height: 222px;
+    background-color:#000000;
+    position: relative;
+}
+.footer .link .luBox{
+    /*height: 220px;*/
+    margin:0 205px;
+    padding-top: 40px;
+    color:#585858 ;
+    font-size: 14px;
+}
+.footer .link li{
+    list-style: none;
+    float: left;
+    width: 65px;
+}
+.footer .link li a{
+    color: #585858;
+    font-size: 13px;
+    text-decoration: none;
+}
+.footer .link li a:hover{
+    color: white;
+}
+.footer .link .luBox p{
+    height: 30px;
+    line-height: 30px;
+}
+.footer .link .lufriend_link{
+    width: 940px;
+    height: 70px;
+    background-color:#101010;
+    margin-top: 20px;
+}
+.footer .link .lufriend_link li{
+    float: left;
+    width: auto;
+    padding: 12px 5px 0px  5px;
+}
+/*弹跳广告栏*/
+.footer .luBanner {
+    width: 255px;
+    height: 250px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    border-radius: 5px;
+}
+.lu_current{
+    width:12px;
+    height: 12px;
+    text-align: center;
+    line-height: 12px;
+    display: block;
+    border-radius: 3px;
+    background-color:green;
+    font-size: 10px;
+    font-weight: 900;
+    color:white;
+    position:absolute;
+    right: 51px;
+    bottom: 87px;
+}
+.lu_current_fal{
+    width:12px;
+    height: 12px;
+    text-align: center;
+    line-height: 12px;
+    display: block;
+    border-radius: 3px;
+    background-color:red;
+    font-size: 10px;
+    font-weight: 900;
+    color:white;
+    position:absolute;
+    right: 51px;
+    bottom: 87px;
+}
+.lu_current_ph{
+    width:12px;
+    height: 12px;
+    text-align: center;
+    line-height: 12px;
+    display: block;
+    border-radius: 3px;
+    background-color:green;
+    font-size: 10px;
+    font-weight: 900;
+    color:white;
+    position:absolute;
+    right: 51px;
+    bottom: 65px;
+}
+.lu_current_phfal{
+    width:12px;
+    height: 12px;
+    text-align: center;
+    line-height: 12px;
+    display: block;
+    border-radius: 3px;
+    background-color:red;
+    font-size: 10px;
+    font-weight: 900;
+    color:white;
+    position:absolute;
+    right: 51px;
+    bottom: 65px;
+}
+.footer .lutitle {
+    height: 30px;
+    line-height: 30px;
+    background-color: #8A8A8A;
+    color: white;
+    font-size: 15px;
+    position: relative;
+    border-radius: 5px 5px 0 0;
+}
+
+/*关闭按钮*/
+.footer .lutitle span {
+    position: absolute;
+    right: 5px;
+    top: -1px;
+    cursor: pointer;
+}
+
+/*文本内容部分*/
+.footer .lu_msg {
+    background-color: #F5F5F5;
+    position: relative;
+    height: 218px;
+    padding-left: 18px;
+    border: 1px solid #8A8A8A;
+}
+
+.footer .lu_msg .lu_text {
+    display: block;
+    height: 96px;
+    width: 201px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+
+/*发送按钮*/
+.footer .lu_msg #lu_btn {
+    width: 90px;
+    height: 23px;
+    background-color: #1ec2e8;
+    color: #000000;
+    margin-left: 65px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.footer .lu_msg p {
+    color: #A4A4A4;
+    font-size: 13px;
+    text-align: center;
+}

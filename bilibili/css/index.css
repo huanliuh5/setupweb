@@ -1,0 +1,473 @@
+/*欢迎页面开始*/
+.mask {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 650px;
+    background-image: url("../images/023b5bb5c9ea15cedfddb964b5003af33a87b2a8.jpg");
+    opacity: 0.15;
+}
+.konglong {
+    position: absolute;
+    bottom: 20px;
+    left: -50px;
+    height: 175px;
+    width: 150px;
+}
+#fir {
+    position: absolute;
+    cursor: pointer;
+}
+#wel{
+    position: absolute;
+    left: 610px;
+    top: 170px;
+    font-size: 25px;
+    color:#00A1D6;
+    display: none;
+}
+/*欢迎页面结束*/
+/*页面背景图片五更琉璃开始*/
+.bodybg1 {
+    width: 100%;
+    height: 2000px;
+    position: absolute;
+    background: url("../images/57dfbf7469401b5447a00d9a.jpg") no-repeat -210px 0;
+    opacity: 0.2;
+}
+/*页面背景图片五更琉璃结束*/
+/*.bodybg2 {*/
+    /*width: 100%;*/
+    /*height:1500px;*/
+    /*position: absolute;*/
+    /*top: 1800px;*/
+    /*background: url("../images/57dfbf7469401b5447a00d9a.jpg") no-repeat -210px 0;*/
+    /*opacity: 0.2;*/
+/*}*/
+/*导航部分开始*/
+.nav {
+    width: 660px;
+    height: 50px;
+    margin-top: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    position: relative;
+}
+.nav i{
+    width: 70px;
+    height: 81px;
+    display: block;
+    background: url("../images/icon000.png") no-repeat ;
+    position: absolute;
+    right: 15px;
+    top: -20px;
+}
+#navBar a{
+    display: block;
+    height:50px;
+    font: 700 16px "微软雅黑";
+    text-align: center;
+    line-height: 50px;
+    color: black;
+    padding-left: 30px;
+}
+#navBar a:hover{
+    color: #DC5381;
+}
+.nav li {
+    /*width: 83px;*/
+    float: left;
+}
+
+.nav span {
+    position: absolute;
+    top: 0;
+    left: 12px;
+    width: 83px;
+    height: 42px;
+    background: url(../images/navbg.png) no-repeat center ;
+    opacity: 0.5;
+}
+
+ul {
+    position: relative;
+}
+
+/*导航部分结束*/
+/*楼层开始*/
+.snav{
+    position: fixed;
+    right: 60px;
+    buttom: 300px;
+    width: 50px;
+    height: 250px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 10px;
+    z-index: 50;
+}
+#snavBar a{
+    height: 25px;
+    display: block;
+    font: 700 16px "微软雅黑";
+    text-align: center;
+    color: black;
+    padding-top: 10px;
+}
+#snavBar a:hover{
+    color: #00A1D6;
+}
+/*楼层结束*/
+/*游戏部分开始*/
+#gamebox {
+    height: 400px;
+    position: relative;
+    background: url("../images/top-gamelist.jpg") center top no-repeat;
+}
+.gamebg {
+    margin-top: 40px;
+    border-bottom: solid 2px #00A1D6;
+}
+.gamebg .gamei{
+    display: inline-block;
+    width: 49px;
+    height: 39px;
+    background: url("../images/icons.png") no-repeat -141px -203px;
+}
+.gamebg a{
+    font: 700 24px "微软雅黑";
+    padding-bottom: 10px;
+}
+.gamebg a:hover{
+    color:#00A1D6;
+}
+#gamepic {
+    margin-top: 20px;
+    width: 1000px;
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+
+}
+#gamepic ul{
+    position: absolute;
+    width: 20000px;
+    left: 0px;
+    top: 35px;
+}
+#gamepic li {
+    width: 1000px;
+    height: 220px;
+    float: left;
+}
+#gamepic ol {
+    position: absolute;
+    left: 320px;
+    right: 10px;
+    bottom: 10px;
+    text-align: center;
+}
+
+#gamepic ol li {
+    float: left;
+    width: 14px;
+    height: 14px;
+    background: #fff;
+    border: 1px solid #ccc;
+    margin-left: 10px;
+    cursor: pointer;
+    border-radius: 7px 7px 7px 7px;
+}
+
+#gamepic ol li.current {
+    background: #00A1D6;
+    width: 16px;
+    height: 16px;
+    border-radius: 10px 10px 10px 10px;
+
+}
+#gamenav {
+    height: 110px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+#gamenav ul{
+    width: 1000px;
+    height: 110px;
+    background: url("../images/mainmenu-ul.jpg") no-repeat;
+}
+#gamenav ul li{
+    float: left;
+}
+#gamenav ul li a{
+    height: 110px;
+    width: 200px;
+    display: block;
+}
+#gamenav ul a.gali1 {
+    background: url("../images/mainmenu-li.png") no-repeat -1px 0;
+}
+#gamenav ul a.gali1:hover{
+    background: url("../images/mainmenu-li.png") no-repeat 0 -110px;
+}
+#gamenav ul a.gali2 {
+    background: url("../images/mainmenu-li.png") no-repeat -201px 0;
+}
+#gamenav ul a.gali2:hover{
+    background: url("../images/mainmenu-li.png") no-repeat -201px -110px;
+}
+#gamenav ul a.gali3 {
+     background: url("../images/mainmenu-li.png") no-repeat -401px 0;
+ }
+#gamenav ul a.gali3:hover{
+    background: url("../images/mainmenu-li.png") no-repeat -401px -110px;
+}
+#gamenav ul a.gali4 {
+      background: url("../images/mainmenu-li.png") no-repeat -601px 0;
+  }
+#gamenav ul a.gali4:hover{
+    background: url("../images/mainmenu-li.png") no-repeat -601px -110px;
+}
+#gamenav ul a.gali5 {
+    background: url("../images/mainmenu-li.png") no-repeat -801px 0;
+}
+#gamenav ul a.gali5:hover{
+    background: url("../images/mainmenu-li.png") no-repeat -801px -110px;
+}
+/*游戏部分结束*/
+/*动漫放送开始*/
+#comic .comicmain .top {
+    width: 750px;
+}
+.gamebg .comi{
+    display: inline-block;
+    width: 49px;
+    height: 39px;
+    background: url("../images/icons.png") no-repeat -140px -142px;
+}
+#comic .comicmain .top ul{
+    margin-top: 30px;
+    height: 36px;
+    width: 750px;
+    border-bottom: 1px solid #ccc;
+}
+#comic .comicmain .top ul li{
+    float: left;
+    height: 36px;
+    width: 80px;
+    text-align: center;
+    font: 700 20px/36px "宋体";
+    cursor: pointer;
+    position: relative;
+}
+#comic .comicmain .top ul .active{
+    width: 100px;
+    text-align: center;
+    background-color: #00A1D6;
+    color: white;
+    padding-left: 50px;
+    border-radius: 15px 15px 15px 15px;
+}
+#comic .comicmain .top ul .date-ni{
+    width: 54px;
+    height: 54px;
+    position: absolute;
+    left: 18px;
+    top: -18px;
+    background: url("../images/bangumi-weekday.png") no-repeat -935px -40px;
+}
+#comic .comicmain .top ul .date-n1{
+    width: 54px;
+    height: 54px;
+    position: absolute;
+    left: 18px;
+    top: -18px;
+    display: none;
+    background: url("../images/bangumi-weekday.png") no-repeat -37px -40px;
+}
+#comic .comicmain .top ul .date-n2{
+    width: 54px;
+    height: 54px;
+    position: absolute;
+    left: 18px;
+    top: -18px;
+    display: none;
+    background: url("../images/bangumi-weekday.png") no-repeat -166px -40px;
+}
+#comic .comicmain .top ul .date-n3{
+    width: 54px;
+    height: 54px;
+    position: absolute;
+    left: 18px;
+    top: -18px;
+    display: none;
+    background: url("../images/bangumi-weekday.png") no-repeat -294px -40px;
+}
+#comic .comicmain .top ul .date-n4{
+    width: 54px;
+    height: 54px;
+    position: absolute;
+    left: 18px;
+    top: -18px;
+    display: none;
+    background: url("../images/bangumi-weekday.png") no-repeat -423px -40px;
+}
+#comic .comicmain .top ul .date-n5{
+    width: 54px;
+    height: 54px;
+    position: absolute;
+    left: 18px;
+    top: -18px;
+    display: none;
+    background: url("../images/bangumi-weekday.png") no-repeat -550px -40px;
+}
+#comic .comicmain .top ul .date-n6{
+    width: 54px;
+    height: 54px;
+    position: absolute;
+    left: 18px;
+    top: -18px;
+    display: none;
+    background: url("../images/bangumi-weekday.png") no-repeat -807px -40px;
+}
+#comic .comicmain .top ul .date-n0{
+    width: 54px;
+    height: 54px;
+    position: absolute;
+    left: 18px;
+    top: -18px;
+    display: none;
+    background: url("../images/bangumi-weekday.png") no-repeat -935px -40px;
+}
+#comic .comicmain .bottom .left1{
+    width: 750px;
+    height: 320px;
+    overflow: auto;
+    display: none;
+}
+#comic .comicmain .left1  .c-item{
+    width: 220px;
+    height: 72px;
+}
+#comic .comicmain .left1 ul li{
+    float: left;
+    margin: 15px 0;
+}
+#comic .comicmain  .left1 .l-pic{
+    float: left;
+}
+#comic .comicmain  .left1  .l-pic a{
+    height: 72px;
+    width: 72px;
+    display: block;
+    overflow: hidden;
+    border-radius: 4px;
+
+}
+#comic .comicmain  .left1 .r-txt{
+    width: 120px;
+    height: 72px;
+    float: left;
+    padding-left: 15px;
+}
+#comic .comicmain  .left1 .p1 {
+    height: 55px;
+}
+.comicmain  .c-item .r-txt span{
+    padding:0 8px;
+    border-radius: 8px;
+    background: #B8C0CC;
+}
+.comicmain  .c-item .r-txt span.new {
+    background-color: pink;
+}
+#comic .comicmain .bottom .left1.selected {
+    display: block;
+}
+/*动漫放送结束*/
+
+
+/*买买买广告开始*/
+#buy{
+    width: 980px;
+    margin-top: 30px;
+    border-radius: 6px;
+    overflow: hidden;
+}
+/*买买买广告结束*/
+
+
+/*今日话题部分题目开始*/
+.dance-pic .girlp {
+    text-align: center;
+    width: 180px;
+    height: 30px;
+    font: 700 15px/30px "微软雅黑";
+    color: #F44B20;
+    background: rgba(0,161,214,0.5);
+    margin-top: 10px;
+    padding: 0 5px;
+    border-radius: 10px;
+}
+.dance-pic .dancei {
+    display: inline-block;
+    width: 49px;
+    height: 39px;
+    background: url("../images/icons.png") no-repeat -140px -1033px;
+}
+/*今日话题部分题目结束*/
+
+/*cosplay部分开始*/
+.gamebg .cosi{
+    display: inline-block;
+    width: 49px;
+    height: 39px;
+    background: url("../images/icons.png") no-repeat -141px -717px;
+}
+.cosbox .cospic{
+    margin-left: 40px;
+}
+.cosbox .cospic img{
+    width: 30%;
+    height: 30%;
+    margin-top: 25px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+/*cosplay部分结束*/
+/*saber游戏广告开始*/
+#gamban{
+    width: 980px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-radius: 6px;
+    overflow: hidden;
+}
+/*saber游戏广告开始*/
+/*小王尼玛开始*/
+.wnm {
+    width: 150px;
+    height: 150px;
+    position: fixed;
+    bottom: 20px;
+    left: -200px;
+    z-index: 10000;
+}
+/*小王尼玛结束*/
+/*旋转木马标题开始*/
+.gamebg .xuanzhuani{
+    display: inline-block;
+    width: 49px;
+    height: 39px;
+    background: url("../images/icons.png") no-repeat -141px -656px;
+}
+/*旋转木马标题结束*/
+/*手绘评比开始*/
+.gamebg .shouhuii{
+    display: inline-block;
+    width: 49px;
+    height: 39px;
+    background: url("../images/icons.png") no-repeat -141px -589px;
+}
+/*手绘评比开始*/

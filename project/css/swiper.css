@@ -1,0 +1,20 @@
+#swiper{
+    position:relative;
+}
+#swiper ol{
+    position:absolute;
+    bottom:2%;
+    left:50%;
+    margin-left: -100px;
+}
+#swiper ol li{
+    margin:0 10px;
+    float: left;
+    width: 30px;
+    height: 30px;
+    background-color: rgba(0, 0, 0, 0.15);
+    /*opacity: 0.2;*/
+    border-radius: 50%;
+    cursor:pointer;
+}
+

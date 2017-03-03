@@ -1,0 +1,1994 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>你的我的在线漫画网</title>
+    <link rel="icon" href="images/dm5.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="css/base.css"/>
+    <!--引用包-->
+    <script src="js/jquery-1.11.1.js"></script>
+    <script src="js/common.js"></script>
+    <script>
+        //左侧广告栏目
+        $(function(){
+            $(window).scroll(function () {
+                var scrollTop = $(document).scrollTop();
+
+                $(".left").stop().animate({"top" : scrollTop + 250},1000);
+            });
+            $(".left span").click(function () {
+                $(".left").hide();
+            });
+        });
+
+    </script>
+</head>
+<body>
+<!--左侧广告-->
+<div class="left"><a href="javascript:void(0)"><img src="images/dm5-PC-130x173.jpg" alt=""></a><span></span></div>
+<!-- 顶部栏 ==================开始-->
+<div class="header" id="headerPart">
+    <!-- 左边logo部分开始-->
+    <div class="container">
+        <div class="logo ib fl">
+            <a href="javascript:void(0)"><img src="images/index_main_logo.png" alt="dm5"/></a>
+        </div>
+        <!-- 中间搜索框-->
+        <div class="centerBar ib fl">
+            <div class="searchBar ib">
+                <input type="text" class="fl" placeholder="例：海贼王843 火影忍者 死神Bleach">
+                <a href="javascript:void(0);" id="LastSureSearch">
+                    <img src="images/index_search_btn.png" alt="搜索">
+                </a>
+            </div>
+            <!--搜索框下面的热词-->
+            <div class="m">
+                <a href="javascript:void(0)" title="海贼王漫画" class="title">海贼王</a>
+                <a href="javascript:void(0)" title="火影忍者漫画" class="title">火影忍者</a>
+                <a href="javascript:void(0)" title="死神漫画" class="title">死神</a>
+                <a href="javascript:void(0)" title="妖精的尾巴漫画" class="title">妖精的尾巴</a>
+                <a href="javascript:void(0)" title="Re:从零开始的异世界生活漫画" class="title">Re:从零开始的异世界生活</a>
+                <a href="javascript:void(0)" title="再造空间漫画" class="title">再造空间</a>
+                <a href="javascript:void(0)" title="我和天师有个约会漫画" class="title">我和天师有个约会</a>
+                <a href="javascript:void(0)" title="Bloody Girl漫画" class="title">Bloody Girl</a>
+            </div>
+        </div>
+        <!-- 右边的登录-->
+        <div class="toolBar ib fr">
+            <!-- 登录==========================================-->
+            <a href="javascript:void(0)" id="link">
+                <img src="images/index_login_btn.png" alt="登录">
+            </a>
+            <div id="login" class="login" >
+                <div id="title" class="login-title">登录会员
+                    <span><a id="closeBtn" href="javascript:void(0);" class="close-login">关闭</a></span></div>
+                <div class="login-input-content">
+                    <div class="login-input">
+                        <label>用户名：</label>
+                        <input type="text" placeholder="请输入用户名" name="info[username]" id="username" class="list-input">
+                    </div>
+                    <div class="login-input">
+                        <label>登录密码：</label>
+                        <input type="password" placeholder="请输入登录密码" name="info[password]" id="password" class="list-input">
+                    </div>
+                </div>
+                <div id="loginBtn" class="login-button"><a href="javascript:void(0);" id="login-button-submit">登录会员</a></div>
+            </div>
+            <div id="bg" class="login-bg" ></div>
+            <!-- 登录的js====================================-->
+            <script>
+                my$("link").onclick=function(){//为link注册点击事件,显示或者隐藏对话框和遮挡层
+                    my$("login").style.display="block";
+                    my$("bg").style.display="block";
+                };
+                my$("closeBtn").onclick=function(){//注册关闭事件,隐藏遮挡的层和对话框
+                    my$("login").style.display="none";
+                    my$("bg").style.display="none";
+                };
+                my$("title").onmousedown=function(e){//为id为title的层注册鼠标按下的事件
+                    //获取鼠标在可视区域的横坐标和纵坐标
+                    //获取当前的对话框的层距离左侧上面的距离
+                    var spaceX= e.clientX-my$("login").offsetLeft;
+                    var spaceY= e.clientY-my$("login").offsetTop;
+                    document.onmousemove=function(e){//注册鼠标移动事件
+                        var left= e.clientX-spaceX;//距离左侧的像素
+                        var top= e.clientY-spaceY;//距离上面的像素
+                        var x=left+250;
+                        var y=top-140;
+                        //设置对话框的left和top
+                        my$("login").style.left=x+"px";
+                        my$("login").style.top=y+"px";
+                    };
+                };
+
+                document.onmouseup=function(){//鼠标抬起来的时候让鼠标移动的事件停止
+                    document.onmousemove=null;//清空这个事件
+                };
+            </script>
+            <!-- 注册=============================================-->
+            <a href="javascript:void(0)">
+                <img src="images/index_reg_btn.png" alt="注册">
+            </a>
+        </div>
+    </div>
+</div>
+<!-- 顶部栏 ==================结束-->
+
+<!-- 导航栏 ==================开始-->
+<div class="main-nav">
+    <div class="navBar" id="navBar">
+        <ul class="container">
+            <a href="javascript:void(0)" class="btn fr">
+                <img src="images/d_navBar_uploadBtn.png" alt="上传漫画">
+            </a>
+            <li><a href="javascript:void(0)" class="item ib active" id="item1">首页</a></li>
+            <li><a href="javascript:void(0)" class="item ib">今日漫画</a></li>
+            <li><a href="javascript:void(0)" class="item ib">最新章节</a></li>
+            <li><a href="javascript:void(0)" class="item ib">连载漫画</a></li>
+            <li><a href="javascript:void(0)" class="item ib">完结漫画</a></li>
+            <li><a href="javascript:void(0)" class="item ib" id="item2">港漫</a></li>
+        </ul>
+        <!--子导航===============开始-->
+        <div class="sonNav w">
+            <ul class="sub-nav-inner">
+                <li class="sub-nav-item">
+                    <a href="javascript:void(0)">降妖伏魔录</a><br>
+                    <a href="javascript:void(0)">武神终极</a><br>
+                    <a href="javascript:void(0)">神契幻奇谭</a><br>
+                    <a href="javascript:void(0)">火凤燎原</a><br>
+                    <a href="javascript:void(0)">now傩雨</a><br>
+                </li>
+                <li class="sub-nav-item">
+                    <a href="javascript:void(0)">阴阳宅急便</a><br>
+                    <a href="javascript:void(0)">暗界追冥狩</a><br>
+                    <a href="javascript:void(0)">天子传奇8</a><br>
+                    <a href="javascript:void(0)">神话战线</a><br>
+                    <a href="javascript:void(0)">苏生战统</a><br>
+                </li>
+                <li class="sub-nav-item">
+                    <a href="javascript:void(0)">妖宿山</a><br>
+                    <a href="javascript:void(0)">宇久纷华</a><br>
+                    <a href="javascript:void(0)">战国墨者异传</a><br>
+                    <a href="javascript:void(0)">和天师有个约会</a><br>
+                    <a href="javascript:void(0)">重返地平线</a><br>
+                </li>
+                <li class="sub-nav-item">
+                    <a href="javascript:void(0)">热血少年</a><br>
+                    <a href="javascript:void(0)">斗门</a><br>
+                    <a href="javascript:void(0)">星海镖师</a><br>
+                    <a href="javascript:void(0)">最强不良传说</a><br>
+                    <a href="javascript:void(0)">梦游仙境</a><br>
+                </li>
+                <li class="sub-nav-item">
+                    <a href="javascript:void(0)">春秋战雄</a><br>
+                    <a href="javascript:void(0)">封神记</a><br>
+                    <a href="javascript:void(0)">新著龙虎门</a><br>
+                    <a href="javascript:void(0)">温瑞安群侠传</a><br>
+                    <a href="javascript:void(0)">鬼僧谈</a><br>
+                </li>
+            </ul>
+        </div>
+
+        <!--子导航===============结束-->
+    </div>
+
+</div>
+<script>
+    $(function () {
+        $(".navBar #item2").mouseenter(function () {
+            $(".sonNav") .show();
+        });
+        $(".navBar").mouseleave(function () {
+            $(".sonNav").hide();
+
+        });
+    });
+</script>
+
+
+<!-- 导航栏 ==================结束-->
+
+<!-- 展示栏======================开始 -->
+<div class="bannerBar" id="bannerPart">
+    <div class="container" id="box">
+        <div class="b-1 bannerForm">
+            <ul>
+                <li>
+                    <a href="javascript:void(0)" title="暗界追冥狩">
+                        <img src="images/1.jpg" alt="暗界追冥狩漫画44">
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" title="阴阳宅急便">
+                        <img src="images/2.jpg" alt="阴阳宅急便漫画36">
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" title="Bloody Girl">
+                        <img src="images/3.jpg" alt="Bloody Girl漫画43">
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" title="尼洛亚-NIRAYA-">
+                        <img src="images/4.jpg" alt="尼洛亚-NIRAYA-漫画29">
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" title="崩坏3 同名手游">
+                        <img src="images/5.jpg" alt="崩坏3 同名手游">
+                    </a>
+                </li>
+            </ul>
+            <ol></ol>
+        </div>
+        <div id="arr"><span id="left">&lt;</span><span id="right">&gt;</span></div>
+        <div>
+            <div class="b-2">
+                <a href="javascript:void(0)" title="暗界追冥狩">
+                    <img src="images/manhua-1.jpg" alt="暗界追冥狩漫画">
+                </a>
+            </div>
+            <div class="b-2">
+                <a href="javascript:void(0)" title="再造空间">
+                    <img src="images/manhua-2.jpg" alt="再造空间漫画">
+                </a>
+            </div>
+            <div class="b-2">
+                <a target="_blank" href="javascript:void(0)" title="崩坏3 同名手游">
+                    <img src="images/dm5-PC-banner-164x192.jpg" alt="崩坏3 同名手游">
+                </a>
+            </div>
+            <div class="b-2">
+                <a href="javascript:void(0)" title="Bloody Girl">
+                    <img src="images/manhua-4.jpg" alt="Bloody Girl漫画">
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- 展示栏======================结束 -->
+
+<!--分类选项导航===================开始-->
+<div class="container">
+    <ul class="classBar">
+        <li><a href="javascript:void(0)" title="热门连载漫画">热门连载</a></li>
+        <li><a href="javascript:void(0)" title="少年热血漫画">少年热血</a></li>
+        <li><a href="javascript:void(0)" title="少女爱情漫画">少女爱情</a></li>
+        <li><a href="javascript:void(0)" title="武侠格斗漫画">武侠格斗</a></li>
+        <li><a href="javascript:void(0)" title="科幻魔幻漫画">科幻魔幻</a></li>
+        <li><a href="javascript:void(0)" title="竞技体育漫画">竞技体育</a></li>
+        <li><a href="javascript:void(0)" title="爆笑喜剧漫画">爆笑喜剧</a></li>
+        <li><a href="javascript:void(0)" title="侦探推理漫画">侦探推理</a></li>
+        <li><a href="javascript:void(0)" title="其它漫画漫画">其它漫画</a></li>
+        <li><a href="javascript:void(0)" title="东方同人漫画">东方同人</a></li>
+        <li><a href="javascript:void(0)" title="港台漫画">港台</a></li>
+        <li><a href="javascript:void(0)" title="日韩漫画">日韩</a></li>
+        <li><a href="javascript:void(0)" title="大陆漫画">大陆</a></li>
+        <li><a href="javascript:void(0)" title="欧美漫画">欧美</a></li>
+    </ul>
+</div>
+<!--分类选项导航===================结束-->
+
+<!--内容栏=============================开始-->
+<div class="content" id="content1">
+    <div class="container">
+        <!-- 左边部分===========================开始-->
+        <div class="centerBar nobottom">
+            <!-- 左上部分================================开始-->
+            <div class="top">
+                <a href="javascript:void(0)" class="fr more">查看更多</a>
+                <img class="logo" src="images/index_title_logo_2.png">
+                <span>原创精品</span>
+            </div>
+            <!-- 左下部分=======================================开始-->
+            <div class="list">
+                <ul>
+                    <li>
+                        <a href="javascript:void(0)" title="崩坏3 同名手游">
+                            <img class="cover" alt="崩坏3 同名手游" src="images/20160513210638_130x174_15.jpg">
+                        </a>
+                        <a href="javascript:void(0)" title="崩坏3 同名手游">
+                            <p class="title">西行记</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" title="暗界追冥狩">
+                            <img class="cover" alt="暗界追冥狩漫画44" src="images/20160930092008_130x174.jpg">
+                            <img class="log" src="images/index_logo_hot.png">
+                        </a>
+                        <a href="javascript:void(0)" title="暗界追冥狩">
+                            <p class="title">暗界追冥狩</p>
+                        </a>
+                        <a href="javascript:void(0)" title="暗界追冥狩 第44回">
+                            <p class="subtitle">第44回</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" title="阴阳宅急便">
+                            <img class="cover" alt="阴阳宅急便漫画36" src="images/20160930092852_130x174.jpg">
+                            <img class="log" src="images/index_logo_hot.png">
+                        </a>
+                        <a href="javascript:void(0)" title="阴阳宅急便">
+                            <p class="title">阴阳宅急便</p>
+                        </a>
+                        <a href="javascript:void(0)" title="阴阳宅急便 第36回">
+                            <p class="subtitle">第36回</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" title="Bloody Girl">
+                            <img class="cover" alt="Bloody Girl漫画43" src="images/8548_c.jpg">
+                            <img class="log" src="images/index_logo_hot.png">
+                        </a>
+                        <a href="javascript:void(0)" title="Bloody Girl">
+                            <p class="title">华丽的挑战</p>
+                        </a>
+                        <a href="javascript:void(0)" title="Bloody Girl 第43回">
+                            <p class="subtitle">第43回</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" title="尼洛亚-NIRAYA-">
+                            <img class="cover" alt="尼洛亚-NIRAYA-漫画29" src="images/20160922100715_130x174.jpg">
+                            <img class="log" src="images/index_logo_hot.png">
+                        </a>
+                        <a href="javascript:void(0)" title="尼洛亚-NIRAYA-">
+                            <p class="title">尼洛亚-NIRAYA-</p>
+                        </a>
+                        <a href="javascript:void(0)" title="尼洛亚-NIRAYA- 第29回">
+                            <p class="subtitle">第29回</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" title="苏生战铳">
+                            <img class="cover" alt="苏生战铳漫画30" src="images/20160815102818_130x174.jpg">
+                            <img class="log" src="images/index_logo_hot.png">
+                        </a>
+                        <a href="javascript:void(0)" title="苏生战铳">
+                            <p class="title">苏生战铳</p>
+                        </a>
+                        <a href="javascript:void(0)" title="苏生战铳 第30回">
+                            <p class="subtitle">第30回</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" title="妖宿山">
+                            <img class="cover" alt="妖宿山漫画国庆特辑" src="images/20160704131733_130x174.jpg">
+                            <img class="log" src="images/index_logo_hot.png">
+                        </a>
+                        <a href="javascript:void(0)" title="妖宿山">
+                            <p class="title">妖宿山</p>
+                        </a>
+                        <a href="javascript:void(0)" title="国庆特辑">
+                            <p class="subtitle">国庆特辑</p>
+                        </a>
+                    </li>
+                    <li><a href="javascript:void(0)" title="宇久纷华·战国墨者异传">
+                        <img class="cover" alt="宇久纷华·战国墨者异传漫画32" src="images/20160405135750_130x174.jpg">
+                        <img class="log" src="images/index_logo_hot.png">
+                    </a>
+                        <a href="javascript:void(0)" title="宇久纷华·战国墨者异传">
+                            <p class="title">宇久纷华·战国</p>
+                        </a>
+                        <a href="javascript:void(0)" title="宇久纷华·战国墨者异传 第32回">
+                            <p class="subtitle">第32回</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" title="我和天师有个约会">
+                            <img class="cover" alt="我和天师有个约会漫画37" src="images/20160926141146_130x174.jpg">
+                            <img class="log" src="images/index_logo_hot.png">
+                        </a>
+                        <a href="javascript:void(0)" title="我和天师有个约会">
+                            <p class="title">我和天师有个约</p>
+                        </a>
+                        <a href="javascript:void(0)" title="我和天师有个约会 第37回">
+                            <p class="subtitle">第37回</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" title="神话战线">
+                            <img class="cover" alt="神话战线漫画8" src="images/20161002083850_130x174.jpg">
+                            <img class="log" src="images/index_logo_hot.png">
+                        </a>
+                        <a href="javascript:void(0)" title="神话战线">
+                            <p class="title">神话战线</p>
+                        </a>
+                        <a href="javascript:void(0)" title="神话战线 第8回">
+                            <p class="subtitle">第8回</p>
+                        </a>
+                    </li>
+                    <li><a href="javascript:void(0)" title="重返地平线">
+                        <img class="cover" alt="重返地平线漫画4" src="images/20160909173118_130x174.jpg">
+                    </a>
+                        <a href="" title="重返地平线">
+                            <p class="title">重返地平线</p>
+                        </a>
+                        <a href="javascript:void(0)" title="重返地平线 第4回">
+                            <p class="subtitle">第4回</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" title="再造空间">
+                            <img class="cover" alt="再造空间漫画45" src="images/20160829135954_130x174.jpg">
+                            <img class="log" src="images/index_logo_hot.png">
+                        </a>
+                        <a href="" title="再造空间">
+                            <p class="title">再造空间</p>
+                        </a>
+                        <a href="javascript:void(0)" title="再造空间 第45回">
+                            <p class="subtitle">第45回</p>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <!-- 右边部分========================================开始-->
+        <div class="sideBar nobottom">
+            <div class="top">
+                    <span class="fr select">
+                        <span>
+                            <a href="javascript:void(0)" class="active">周榜</a>
+                             <a href="javascript:void(0)" >月榜</a>
+                             <a href="javascript:void(0)" >总榜</a>
+                        </span>
+                    </span>
+                <img class="logo" src="images/index_title_logo_1.png">
+                <span class="t">原创漫画榜</span>
+            </div>
+            <div id="lists">
+                <div class="list show">
+                    <div class="one">
+                        <a href="javascript:void(0)" title="Bloody Girl">
+                            <img src="images/20160812200249_130x174.jpg" class="cover" alt="Bloody Girl漫画43">
+                        </a>
+                        <img src="images/index_top_one.png" class="tip">
+                        <div class="info">
+                            <p class="title">
+                                <a href="javascript:void(0)" title="Bloody Girl">无际天书</a>
+                            </p>
+                            <p class="subtitle"> 作者：瑛麒动漫 </p>
+                            <p class="subtitle">类型：梦幻玄幻</p>
+                        </div>
+                        <div class="border"></div>
+                    </div>
+                    <ul>
+                        <li>
+                            <a href="javascript:void(0)" title="尼洛亚-NIRAYA-">
+                                <div class="tip tip_2">2</div>
+                                <div class="title">尼洛亚-NIRAYA-</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="苏生战铳">
+                                <div class="tip tip_3">3</div>
+                                <div class="title">苏生战铳</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="神话战线">
+                                <div class="tip tip_other">4</div>
+                                <div class="title">神话战线</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="我和天师有个约会">
+                                <div class="tip tip_other">5</div>
+                                <div class="title">我和天师有个约会</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="退休的勇者们">
+                                <div class="tip tip_other">6</div>
+                                <div class="title">退休的勇者们</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="images/manhua-bailianchengshen/" title="百炼成神">
+                                <div class="tip tip_other">7</div>
+                                <div class="title">百炼成神</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="images/manhua-yinyangzhaijibian/" title="阴阳宅急便">
+                                <div class="tip tip_other">8</div>
+                                <div class="title">阴阳宅急便</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="images/manhua-yujiufenhua/" title="宇久纷华·战国墨者异传">
+                                <div class="tip tip_other">9</div>
+                                <div class="title">宇久纷华·战国墨者</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="images/manhua-duantoudao/" title="断头岛">
+                                <div class="tip tip_other">10</div>
+                                <div class="title">断头岛</div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="list ">
+                    <div class="one">
+                        <a href="javascript:void(0)" title="Bloody Girl">
+                            <img src="images/20161002220512_130x174_18.jpg"
+                                 class="cover" alt="Bloody Girl漫画43">
+                        </a>
+                        <img src="images/index_top_one.png" class="tip">
+
+                        <div class="info">
+                            <p class="title">
+                                <a href="javascript:void(0)" title="Bloody Girl">发圈之恋</a>
+                            </p>
+                            <p class="subtitle"> 作者： 岩千佳 </p>
+                            <p class="subtitle">类型：少女爱情</p>
+                        </div>
+                        <div class="border"></div>
+                    </div>
+                    <ul>
+                        <li>
+                            <a href="javascript:void(0)" title="尼洛亚-NIRAYA-">
+                                <div class="tip tip_2">2</div>
+                                <div class="title">尼洛亚-NIRAYA-</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="神话战线">
+                                <div class="tip tip_3">3</div>
+                                <div class="title">神话战线</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="苏生战铳">
+                                <div class="tip tip_other">4</div>
+                                <div class="title">苏生战铳</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="重返地平线">
+                                <div class="tip tip_other">5</div>
+                                <div class="title">重返地平线</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="我和天师有个约会">
+                                <div class="tip tip_other">6</div>
+                                <div class="title">我和天师有个约会</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="再造空间">
+                                <div class="tip tip_other">7</div>
+                                <div class="title">再造空间</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="本草仙云之梦白蛇">
+                                <div class="tip tip_other">8</div>
+                                <div class="title">本草仙云之梦白蛇</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="暗界追冥狩">
+                                <div class="tip tip_other">9</div>
+                                <div class="title">暗界追冥狩</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="阴阳宅急便">
+                                <div class="tip tip_other">10</div>
+                                <div class="title">阴阳宅急便</div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="list">
+                    <div class="one">
+                        <a href="javascript:void(0)" title="Bloody Girl">
+                            <img src="images/20161005225506_130x174_11.jpg" class="cover" alt="Bloody Girl漫画43">
+                        </a>
+                        <img src="images/index_top_one.png" class="tip">
+                        <div class="info">
+                            <p class="title">
+                                <a href="javascript:void(0)" title="Bloody Girl">惩罚者</a>
+                            </p>
+                            <p class="subtitle"> 作者：佐佐木 </p>
+                            <p class="subtitle">类型：少年热血</p></div>
+                        <div class="border"></div>
+                    </div>
+                    <ul>
+                        <li>
+                            <a href="javascript:void(0)" title="再造空间">
+                                <div class="tip tip_2">2</div>
+                                <div class="title">再造空间</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="柯南">
+                                <div class="tip tip_2">3</div>
+                                <div class="title">柯南</div>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="我和天师有个约会">
+                                <div class="tip tip_other">4</div>
+                                <div class="title">我和天师有个约会</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="暗界追冥狩">
+                                <div class="tip tip_other">5</div>
+                                <div class="title">暗界追冥狩</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="阴阳宅急便">
+                                <div class="tip tip_other">6</div>
+                                <div class="title">阴阳宅急便</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="基因猎人">
+                                <div class="tip tip_other">7</div>
+                                <div class="title">基因猎人</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="镖人">
+                                <div class="tip tip_other">8</div>
+                                <div class="title">镖人</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" title="百炼成神">
+                                <div class="tip tip_other">9</div>
+                                <div class="title">百炼成神</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="尼洛亚-NIRAYA-">
+                                <div class="tip tip_other">10</div>
+                                <div class="title">尼洛亚-NIRAYA-</div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- tab栏切换-->
+            <script>
+                $(function () {//入口函数
+                    $(".top>.select>span>a").mouseenter(function(){
+                        $(this).addClass("active").siblings("a").removeClass("active");
+                        //鼠标放到ul中的某个li上，该li对应索引值的下面的div添加selected。其他的div删除selected
+                        $("#lists>div").eq($(this).index()).addClass("show").siblings("div").removeClass("show");
+                    });
+                });
+            </script>
+        </div>
+    </div>
+</div>
+
+
+<!--内容栏=============================开始-->
+
+<div class="content" id="content2">
+    <div class="container">
+        <!-- 左边部分===========================开始-->
+        <div class="centerBar nobottom">
+            <!-- 左上部分================================开始-->
+            <div class="top">
+                <a href="javascript:void(0)" class="fr more">查看更多</a>
+                <img class="logo" src="images/index_title_logo_7.png">
+                <span>最新更新</span>
+            </div>
+            <!-- 左下部分=======================================开始-->
+            <div class="list">
+                <ul>
+                    <li>
+                        <a href="javascript:void(0)" title="崩坏3 同名手游">
+                            <img class="cover" alt="崩坏3 同名手游" src="images/346_c.jpg">
+                        </a>
+                        <a href="javascript:void(0)" title="崩坏3 同名手游">
+                            <p class="title">橄榄球第一部</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" title="暗界追冥狩">
+                            <img class="cover" alt="暗界追冥狩漫画44" src="images/589_c.jpg">
+                            <img class="log" src="images/index_logo_hot.png">
+                        </a>
+                        <a href="javascript:void(0)" title="暗界追冥狩">
+                            <p class="title">结界师</p>
+                        </a>
+                        <a href="javascript:void(0)" title="暗界追冥狩 第44回">
+                            <p class="subtitle">第28回</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" title="阴阳宅急便">
+                            <img class="cover" alt="阴阳宅急便漫画36" src="images/2466_c.jpg">
+                            <img class="log" src="images/index_logo_hot.png">
+                        </a>
+                        <a href="javascript:void(0)" title="阴阳宅急便">
+                            <p class="title">妖怪联络簿</p>
+                        </a>
+                        <a href="javascript:void(0)" title="阴阳宅急便 第36回">
+                            <p class="subtitle">第41回</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" title="Bloody Girl">
+                            <img class="cover" alt="Bloody Girl漫画43" src="images/20141103115526_130x174_11.jpg">
+                            <img class="log" src="images/index_logo_hot.png">
+                        </a>
+                        <a href="javascript:void(0)" title="Bloody Girl">
+                            <p class="title">死亡笔记</p>
+                        </a>
+                        <a href="javascript:void(0)" title="Bloody Girl 第43回">
+                            <p class="subtitle">第23回</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" title="尼洛亚-NIRAYA-">
+                            <img class="cover" alt="尼洛亚-NIRAYA-漫画29" src="images/20141103134905_130x174_14.jpg">
+                            <img class="log" src="images/index_logo_hot.png">
+                        </a>
+                        <a href="javascript:void(0)" title="尼洛亚-NIRAYA-">
+                            <p class="title">柑奈学徒</p>
+                        </a>
+                        <a href="javascript:void(0)" title="尼洛亚-NIRAYA- 第29回">
+                            <p class="subtitle">第39回</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" title="苏生战铳">
+                            <img class="cover" alt="苏生战铳漫画30" src="images/20141206114139_130x174_14.jpg">
+                            <img class="log" src="images/index_logo_hot.png">
+                        </a>
+                        <a href="javascript:void(0)" title="苏生战铳">
+                            <p class="title">明天我要结婚了</p>
+                        </a>
+                        <a href="javascript:void(0)" title="苏生战铳 第30回">
+                            <p class="subtitle">第33回</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" title="妖宿山">
+                            <img class="cover" alt="妖宿山漫画国庆特辑" src="images/8241_c.jpg">
+                            <img class="log" src="images/index_logo_hot.png">
+                        </a>
+                        <a href="javascript:void(0)" title="妖宿山">
+                            <p class="title">妖狐连载</p>
+                        </a>
+                        <a href="javascript:void(0)" title="国庆特辑">
+                            <p class="subtitle">国庆特辑</p>
+                        </a>
+                    </li>
+                    <li><a href="javascript:void(0)" title="宇久纷华·战国墨者异传">
+                        <img class="cover" alt="宇久纷华·战国墨者异传漫画32" src="images/20150220102230_130x174_14.jpg">
+                        <img class="log" src="images/index_logo_hot.png">
+                    </a>
+                        <a href="javascript:void(0)" title="宇久纷华·战国墨者异传">
+                            <p class="title">乌龙派出所</p>
+                        </a>
+                        <a href="javascript:void(0)" title="宇久纷华·战国墨者异传 第32回">
+                            <p class="subtitle">第35回</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" title="我和天师有个约会">
+                            <img class="cover" alt="我和天师有个约会漫画37" src="images/20150403095116_130x174_13.jpg">
+                            <img class="log" src="images/index_logo_hot.png">
+                        </a>
+                        <a href="javascript:void(0)" title="我和天师有个约会">
+                            <p class="title">疵面</p>
+                        </a>
+                        <a href="javascript:void(0)" title="我和天师有个约会 第37回">
+                            <p class="subtitle">第38回</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" title="神话战线">
+                            <img class="cover" alt="神话战线漫画8" src="images/20150411152849_130x174_15.jpg">
+                            <img class="log" src="images/index_logo_hot.png">
+                        </a>
+                        <a href="javascript:void(0)" title="神话战线">
+                            <p class="title">遥望天际</p>
+                        </a>
+                        <a href="javascript:void(0)" title="神话战线 第8回">
+                            <p class="subtitle">第9回</p>
+                        </a>
+                    </li>
+                    <li><a href="javascript:void(0)" title="重返地平线">
+                        <img class="cover" alt="重返地平线漫画4" src="images/20150412094212_130x174_17.jpg">
+                    </a>
+                        <a href="" title="重返地平线">
+                            <p class="title">奈美子大冒险</p>
+                        </a>
+                        <a href="javascript:void(0)" title="重返地平线 第4回">
+                            <p class="subtitle">第14回</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" title="再造空间">
+                            <img class="cover" alt="再造空间漫画45" src="images/20150421153040_130x174_13.jpg">
+                            <img class="log" src="images/index_logo_hot.png">
+                        </a>
+                        <a href="" title="再造空间">
+                            <p class="title">王者天下</p>
+                        </a>
+                        <a href="javascript:void(0)" title="再造空间 第45回">
+                            <p class="subtitle">第47回</p>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <!-- 右边部分========================================开始-->
+        <div class="sideBar nobottom">
+            <div class="top">
+                    <span class="fr select">
+                        <span>
+                            <a href="javascript:void(0)" class="active">周榜</a>
+                             <a href="javascript:void(0)" >月榜</a>
+                             <a href="javascript:void(0)" >总榜</a>
+                        </span>
+                    </span>
+                <img class="logo" src="images/index_title_logo_1.png">
+                <span class="t">原创漫画更新榜</span>
+            </div>
+            <div id="listsOne">
+                <div class="list show">
+                    <div class="one">
+                        <a href="javascript:void(0)" title="Bloody Girl">
+                            <img src="images/20150430155820_130x174_13.jpg" class="cover" alt="Bloody Girl漫画43">
+                        </a>
+                        <img src="images/index_top_one.png" class="tip">
+                        <div class="info">
+                            <p class="title">
+                                <a href="javascript:void(0)" title="Bloody Girl">一拳超人</a>
+                            </p>
+                            <p class="subtitle"> 作者： 村田雄介 ONE </p>
+                            <p class="subtitle">类型：少年热血</p>
+                        </div>
+                        <div class="border"></div>
+                    </div>
+                    <ul>
+                        <li>
+                            <a href="javascript:void(0)" title="尼洛亚-NIRAYA-">
+                                <div class="tip tip_2">2</div>
+                                <div class="title">退休的勇士们</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="苏生战铳">
+                                <div class="tip tip_3">3</div>
+                                <div class="title">苏生战铳</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="神话战线">
+                                <div class="tip tip_other">4</div>
+                                <div class="title">机器人大战</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="我和天师有个约会">
+                                <div class="tip tip_other">5</div>
+                                <div class="title">神话战线</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="退休的勇者们">
+                                <div class="tip tip_other">6</div>
+                                <div class="title">华丽的挑战</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="images/manhua-bailianchengshen/" title="百炼成神">
+                                <div class="tip tip_other">7</div>
+                                <div class="title">钻石王牌</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="images/manhua-yinyangzhaijibian/" title="阴阳宅急便">
+                                <div class="tip tip_other">8</div>
+                                <div class="title">阴阳宅急便</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="images/manhua-yujiufenhua/" title="宇久纷华·战国墨者异传">
+                                <div class="tip tip_other">9</div>
+                                <div class="title">宇久纷华·战国墨者</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="images/manhua-duantoudao/" title="断头岛">
+                                <div class="tip tip_other">10</div>
+                                <div class="title">旅行日记</div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="list ">
+                    <div class="one">
+                        <a href="javascript:void(0)" title="Bloody Girl">
+                            <img src="images/20160829141946_130x174.jpg"
+                                 class="cover" alt="Bloody Girl漫画43">
+                        </a>
+                        <img src="images/index_top_one.png" class="tip">
+
+                        <div class="info">
+                            <p class="title">
+                                <a href="javascript:void(0)" title="Bloody Girl">Bloody Girl</a>
+                            </p>
+                            <p class="subtitle"> 作者： 牛佬 瑛麒动漫 </p>
+                            <p class="subtitle">类型：少年热血</p>
+                        </div>
+                        <div class="border"></div>
+                    </div>
+                    <ul>
+                        <li>
+                            <a href="javascript:void(0)" title="尼洛亚-NIRAYA-">
+                                <div class="tip tip_2">2</div>
+                                <div class="title">尼洛亚-NIRAYA-</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="神话战线">
+                                <div class="tip tip_3">3</div>
+                                <div class="title">神话战线</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="苏生战铳">
+                                <div class="tip tip_other">4</div>
+                                <div class="title">苏生战铳</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="重返地平线">
+                                <div class="tip tip_other">5</div>
+                                <div class="title">重返地平线</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="我和天师有个约会">
+                                <div class="tip tip_other">6</div>
+                                <div class="title">我和天师有个约会</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="再造空间">
+                                <div class="tip tip_other">7</div>
+                                <div class="title">再造空间</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="本草仙云之梦白蛇">
+                                <div class="tip tip_other">8</div>
+                                <div class="title">本草仙云之梦白蛇</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="暗界追冥狩">
+                                <div class="tip tip_other">9</div>
+                                <div class="title">暗界追冥狩</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="阴阳宅急便">
+                                <div class="tip tip_other">10</div>
+                                <div class="title">阴阳宅急便</div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="list">
+                    <div class="one">
+                        <a href="javascript:void(0)" title="Bloody Girl">
+                            <img src="images/20160502222117_130x174_16.jpg" class="cover" alt="Bloody Girl漫画43">
+                        </a>
+                        <img src="images/index_top_one.png" class="tip">
+                        <div class="info">
+                            <p class="title">
+                                <a href="javascript:void(0)" title="Bloody Girl">新连课</a>
+                            </p>
+                            <p class="subtitle"> 作者：新连课 </p>
+                            <p class="subtitle">类型：少年热血</p></div>
+                        <div class="border"></div>
+                    </div>
+                    <ul>
+                        <li>
+                            <a href="javascript:void(0)" title="再造空间">
+                                <div class="tip tip_2">2</div>
+                                <div class="title">再造空间</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="柯南">
+                                <div class="tip tip_2">3</div>
+                                <div class="title">柯南</div>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="我和天师有个约会">
+                                <div class="tip tip_other">4</div>
+                                <div class="title">我和天师有个约会</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="暗界追冥狩">
+                                <div class="tip tip_other">5</div>
+                                <div class="title">暗界追冥狩</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="阴阳宅急便">
+                                <div class="tip tip_other">6</div>
+                                <div class="title">阴阳宅急便</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="基因猎人">
+                                <div class="tip tip_other">7</div>
+                                <div class="title">基因猎人</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="镖人">
+                                <div class="tip tip_other">8</div>
+                                <div class="title">镖人</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" title="百炼成神">
+                                <div class="tip tip_other">9</div>
+                                <div class="title">百炼成神</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="尼洛亚-NIRAYA-">
+                                <div class="tip tip_other">10</div>
+                                <div class="title">尼洛亚-NIRAYA-</div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- tab栏切换-->
+            <script>
+                $(function () {//入口函数
+                    $(".top>.select>span>a").mouseenter(function(){
+                        $(this).addClass("active").siblings("a").removeClass("active");
+                        //鼠标放到ul中的某个li上，该li对应索引值的下面的div添加selected。其他的div删除selected
+                        $("#listsOne>div").eq($(this).index()).addClass("show").siblings("div").removeClass("show");
+                    });
+                });
+            </script>
+        </div>
+    </div>
+</div>
+<div class="content" id="content3">
+    <div class="container">
+        <!-- 左边部分===========================开始-->
+        <div class="centerBar nobottom">
+            <!-- 左上部分================================开始-->
+            <div class="top">
+                <a href="javascript:void(0)" class="fr more">查看更多</a>
+                <img class="logo" src="images/index_title_logo_3.png">
+                <span>热门连载漫画</span>
+            </div>
+            <!-- 左下部分=======================================开始-->
+            <div class="list">
+                <ul>
+                    <li>
+                        <a href="javascript:void(0)" title="崩坏3 同名手游">
+                            <img class="cover" alt="崩坏3 同名手游" src="images/20150430155820_130x174_13.jpg">
+                        </a>
+                        <a href="javascript:void(0)" title="崩坏3 同名手游">
+                            <p class="title">一拳超人</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" title="暗界追冥狩">
+                            <img class="cover" alt="暗界追冥狩漫画44" src="images/20150604105121_130x174_18.jpg">
+                            <img class="log" src="images/index_logo_hot.png">
+                        </a>
+                        <a href="javascript:void(0)" title="暗界追冥狩">
+                            <p class="title">魂魄超连载</p>
+                        </a>
+                        <a href="javascript:void(0)" title="暗界追冥狩 第44回">
+                            <p class="subtitle">第24回</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" title="阴阳宅急便">
+                            <img class="cover" alt="阴阳宅急便漫画36" src="images/20150615143402_130x174_9.jpg">
+                            <img class="log" src="images/index_logo_hot.png">
+                        </a>
+                        <a href="javascript:void(0)" title="阴阳宅急便">
+                            <p class="title">蒙面白兔</p>
+                        </a>
+                        <a href="javascript:void(0)" title="阴阳宅急便 第36回">
+                            <p class="subtitle">第56回</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" title="Bloody Girl">
+                            <img class="cover" alt="Bloody Girl漫画43" src="images/20150801095448_130x174_16.jpg">
+                            <img class="log" src="images/index_logo_hot.png">
+                        </a>
+                        <a href="javascript:void(0)" title="Bloody Girl">
+                            <p class="title">炼狱第二部</p>
+                        </a>
+                        <a href="javascript:void(0)" title="Bloody Girl 第43回">
+                            <p class="subtitle">第24回</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" title="尼洛亚-NIRAYA-">
+                            <img class="cover" alt="尼洛亚-NIRAYA-漫画29" src="images/20150803095936_130x174_15.jpg">
+                            <img class="log" src="images/index_logo_hot.png">
+                        </a>
+                        <a href="javascript:void(0)" title="尼洛亚-NIRAYA-">
+                            <p class="title">死神第三部</p>
+                        </a>
+                        <a href="javascript:void(0)" title="尼洛亚-NIRAYA- 第29回">
+                            <p class="subtitle">第13回</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" title="苏生战铳">
+                            <img class="cover" alt="苏生战铳漫画30" src="images/20160327131947_130x174_14.jpg">
+                            <img class="log" src="images/index_logo_hot.png">
+                        </a>
+                        <a href="javascript:void(0)" title="苏生战铳">
+                            <p class="title">颜如许</p>
+                        </a>
+                        <a href="javascript:void(0)" title="苏生战铳 第30回">
+                            <p class="subtitle">第32回</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" title="妖宿山">
+                            <img class="cover" alt="妖宿山漫画国庆特辑" src="images/20160411123912_130x174_16.jpg">
+                            <img class="log" src="images/index_logo_hot.png">
+                        </a>
+                        <a href="javascript:void(0)" title="妖宿山">
+                            <p class="title">启幕南雄的灾难</p>
+                        </a>
+                        <a href="javascript:void(0)" title="国庆特辑">
+                            <p class="subtitle">国庆特辑</p>
+                        </a>
+                    </li>
+                    <li><a href="javascript:void(0)" title="宇久纷华·战国墨者异传">
+                        <img class="cover" alt="宇久纷华·战国墨者异传漫画32" src="images/20160411124934_130x174_12.jpg">
+                        <img class="log" src="images/index_logo_hot.png">
+                    </a>
+                        <a href="javascript:void(0)" title="宇久纷华·战国墨者异传">
+                            <p class="title">双星阴阳师</p>
+                        </a>
+                        <a href="javascript:void(0)" title="宇久纷华·战国墨者异传 第32回">
+                            <p class="subtitle">第39回</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" title="我和天师有个约会">
+                            <img class="cover" alt="我和天师有个约会漫画37" src="images/20160428194958_130x174_15.jpg">
+                            <img class="log" src="images/index_logo_hot.png">
+                        </a>
+                        <a href="javascript:void(0)" title="我和天师有个约会">
+                            <p class="title">龙虎门</p>
+                        </a>
+                        <a href="javascript:void(0)" title="我和天师有个约会 第37回">
+                            <p class="subtitle">第17回</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" title="神话战线">
+                            <img class="cover" alt="神话战线漫画8" src="images/20160502222117_130x174_16.jpg">
+                            <img class="log" src="images/index_logo_hot.png">
+                        </a>
+                        <a href="javascript:void(0)" title="神话战线">
+                            <p class="title">悄悄爱上你</p>
+                        </a>
+                        <a href="javascript:void(0)" title="神话战线 第8回">
+                            <p class="subtitle">第23回</p>
+                        </a>
+                    </li>
+                    <li><a href="javascript:void(0)" title="重返地平线">
+                        <img class="cover" alt="重返地平线漫画4" src="images/20160708102719_130x174_11.jpg">
+                    </a>
+                        <a href="" title="重返地平线">
+                            <p class="title">今年12岁</p>
+                        </a>
+                        <a href="javascript:void(0)" title="重返地平线 第4回">
+                            <p class="subtitle">第44回</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" title="再造空间">
+                            <img class="cover" alt="再造空间漫画45" src="images/20160812200249_130x174.jpg">
+                            <img class="log" src="images/index_logo_hot.png">
+                        </a>
+                        <a href="" title="再造空间">
+                            <p class="title">无际天书</p>
+                        </a>
+                        <a href="javascript:void(0)" title="再造空间 第45回">
+                            <p class="subtitle">第32回</p>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <!-- 右边部分========================================开始-->
+        <div class="sideBar nobottom">
+            <div class="top">
+                    <span class="fr select">
+                        <span>
+                            <a href="javascript:void(0)" class="active">周榜</a>
+                             <a href="javascript:void(0)" >月榜</a>
+                             <a href="javascript:void(0)" >总榜</a>
+                        </span>
+                    </span>
+                <img class="logo" src="images/index_title_logo_1.png">
+                <span class="t">漫画连载榜</span>
+            </div>
+            <div id="listsTwo">
+                <div class="list show">
+                    <div class="one">
+                        <a href="javascript:void(0)" title="妖精的尾巴">
+                            <img src="images/20150421084645_130x174_13.jpg" class="cover" alt="Bloody Girl漫画43">
+                        </a>
+                        <img src="images/index_top_one.png" class="tip">
+                        <div class="info">
+                            <p class="title">
+                                <a href="javascript:void(0)" title="Bloody Girl">妖精的尾巴</a>
+                            </p>
+                            <p class="subtitle"> 作者： 真岛浩 </p>
+                            <p class="subtitle"> 类型：科幻魔幻 </p>
+                        </div>
+                        <div class="border"></div>
+                    </div>
+                    <ul>
+                        <li>
+                            <a href="javascript:void(0)" title="尼洛亚-NIRAYA-">
+                                <div class="tip tip_2">2</div>
+                                <div class="title">死神第三部</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="苏生战铳">
+                                <div class="tip tip_3">3</div>
+                                <div class="title">颜如许</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="神话战线">
+                                <div class="tip tip_other">4</div>
+                                <div class="title">今年12岁</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="我和天师有个约会">
+                                <div class="tip tip_other">5</div>
+                                <div class="title">悄悄爱上你</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="退休的勇者们">
+                                <div class="tip tip_other">6</div>
+                                <div class="title">龙虎门</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="images/manhua-bailianchengshen/" title="百炼成神">
+                                <div class="tip tip_other">7</div>
+                                <div class="title">双星阴阳师</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="images/manhua-yinyangzhaijibian/" title="阴阳宅急便">
+                                <div class="tip tip_other">8</div>
+                                <div class="title">启幕南雄的灾难</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="images/manhua-yujiufenhua/" title="宇久纷华·战国墨者异传">
+                                <div class="tip tip_other">9</div>
+                                <div class="title">斗破苍穹</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="images/manhua-duantoudao/" title="断头岛">
+                                <div class="tip tip_other">10</div>
+                                <div class="title">斗罗大陆</div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="list ">
+                    <div class="one">
+                        <a href="javascript:void(0)" title="Bloody Girl">
+                            <img src="images/20160829141946_130x174.jpg"
+                                 class="cover" alt="Bloody Girl漫画43">
+                        </a>
+                        <img src="images/index_top_one.png" class="tip">
+
+                        <div class="info">
+                            <p class="title">
+                                <a href="javascript:void(0)" title="Bloody Girl">Bloody Girl</a>
+                            </p>
+                            <p class="subtitle"> 作者： 牛佬 瑛麒动漫 </p>
+                            <p class="subtitle">类型：少年热血</p>
+                        </div>
+                        <div class="border"></div>
+                    </div>
+                    <ul>
+                        <li>
+                            <a href="javascript:void(0)" title="尼洛亚-NIRAYA-">
+                                <div class="tip tip_2">2</div>
+                                <div class="title">尼洛亚-NIRAYA-</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="神话战线">
+                                <div class="tip tip_3">3</div>
+                                <div class="title">神话战线</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="苏生战铳">
+                                <div class="tip tip_other">4</div>
+                                <div class="title">苏生战铳</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="重返地平线">
+                                <div class="tip tip_other">5</div>
+                                <div class="title">重返地平线</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="我和天师有个约会">
+                                <div class="tip tip_other">6</div>
+                                <div class="title">我和天师有个约会</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="再造空间">
+                                <div class="tip tip_other">7</div>
+                                <div class="title">再造空间</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="本草仙云之梦白蛇">
+                                <div class="tip tip_other">8</div>
+                                <div class="title">本草仙云之梦白蛇</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="暗界追冥狩">
+                                <div class="tip tip_other">9</div>
+                                <div class="title">暗界追冥狩</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="阴阳宅急便">
+                                <div class="tip tip_other">10</div>
+                                <div class="title">阴阳宅急便</div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="list">
+                    <div class="one">
+                        <a href="javascript:void(0)" title="Bloody Girl">
+                            <img src="images/20150604105121_130x174_18.jpg" class="cover" alt="Bloody Girl漫画43">
+                        </a>
+                        <img src="images/index_top_one.png" class="tip">
+                        <div class="info">
+                            <p class="title">
+                                <a href="javascript:void(0)" title="Bloody Girl">新连载</a>
+                            </p>
+                            <p class="subtitle"> 作者：阿克西 </p>
+                            <p class="subtitle">类型：少年热血</p></div>
+                        <div class="border"></div>
+                    </div>
+                    <ul>
+                        <li>
+                            <a href="javascript:void(0)" title="再造空间">
+                                <div class="tip tip_2">2</div>
+                                <div class="title">再造空间</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="柯南">
+                                <div class="tip tip_2">3</div>
+                                <div class="title">柯南</div>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="我和天师有个约会">
+                                <div class="tip tip_other">4</div>
+                                <div class="title">我和天师有个约会</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="暗界追冥狩">
+                                <div class="tip tip_other">5</div>
+                                <div class="title">暗界追冥狩</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="阴阳宅急便">
+                                <div class="tip tip_other">6</div>
+                                <div class="title">阴阳宅急便</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="基因猎人">
+                                <div class="tip tip_other">7</div>
+                                <div class="title">基因猎人</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="镖人">
+                                <div class="tip tip_other">8</div>
+                                <div class="title">镖人</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" title="百炼成神">
+                                <div class="tip tip_other">9</div>
+                                <div class="title">百炼成神</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="尼洛亚-NIRAYA-">
+                                <div class="tip tip_other">10</div>
+                                <div class="title">尼洛亚-NIRAYA-</div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- tab栏切换-->
+            <script>
+                $(function () {//入口函数
+                    $(".top>.select>span>a").mouseenter(function(){
+                        $(this).addClass("active").siblings("a").removeClass("active");
+                        //鼠标放到ul中的某个li上，该li对应索引值的下面的div添加selected。其他的div删除selected
+                        $("#listsTwo>div").eq($(this).index()).addClass("show").siblings("div").removeClass("show");
+                    });
+                });
+            </script>
+        </div>
+    </div>
+</div>
+<div class="content" id="content4">
+    <div class="container">
+        <!-- 左边部分===========================开始-->
+        <div class="centerBar nobottom">
+            <!-- 左上部分================================开始-->
+            <div class="top">
+                <a href="javascript:void(0)" class="fr more">查看更多</a>
+                <img class="logo" src="images/index_title_logo_4.png">
+                <span>最新上架漫画</span>
+            </div>
+            <!-- 左下部分=======================================开始-->
+            <div class="list">
+                <ul>
+                    <li>
+                        <a href="javascript:void(0)" title="崩坏3 同名手游">
+                            <img class="cover" alt="崩坏3 同名手游" src="images/20161006094724_130x174_17.jpg">
+                        </a>
+                        <a href="javascript:void(0)" title="崩坏3 同名手游">
+                            <p class="title">狂明之死</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" title="暗界追冥狩">
+                            <img class="cover" alt="暗界追冥狩漫画44" src="images/20161006101701_130x174_13.jpg">
+                            <img class="log" src="images/index_logo_hot.png">
+                        </a>
+                        <a href="javascript:void(0)" title="暗界追冥狩">
+                            <p class="title">知音紧祭</p>
+                        </a>
+                        <a href="javascript:void(0)" title="暗界追冥狩 第44回">
+                            <p class="subtitle">第82回</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" title="阴阳宅急便">
+                            <img class="cover" alt="阴阳宅急便漫画36" src="images/20161006134515_130x174_14.jpg">
+                            <img class="log" src="images/index_logo_hot.png">
+                        </a>
+                        <a href="javascript:void(0)" title="阴阳宅急便">
+                            <p class="title">告白传说</p>
+                        </a>
+                        <a href="javascript:void(0)" title="阴阳宅急便 第36回">
+                            <p class="subtitle">第62回</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" title="Bloody Girl">
+                            <img class="cover" alt="Bloody Girl漫画43" src="images/20161006151402_130x174_14.jpg">
+                            <img class="log" src="images/index_logo_hot.png">
+                        </a>
+                        <a href="javascript:void(0)" title="Bloody Girl">
+                            <p class="title">星褐璐璐</p>
+                        </a>
+                        <a href="javascript:void(0)" title="Bloody Girl 第43回">
+                            <p class="subtitle">第36回</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" title="尼洛亚-NIRAYA-">
+                            <img class="cover" alt="尼洛亚-NIRAYA-漫画29" src="images/20161006153053_130x174_18.jpg">
+                            <img class="log" src="images/index_logo_hot.png">
+                        </a>
+                        <a href="javascript:void(0)" title="尼洛亚-NIRAYA-">
+                            <p class="title">机器人大战</p>
+                        </a>
+                        <a href="javascript:void(0)" title="尼洛亚-NIRAYA- 第29回">
+                            <p class="subtitle">国庆特辑</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" title="苏生战铳">
+                            <img class="cover" alt="苏生战铳漫画30" src="images/20161006160101_130x174_12.jpg">
+                            <img class="log" src="images/index_logo_hot.png">
+                        </a>
+                        <a href="javascript:void(0)" title="苏生战铳">
+                            <p class="title">苏先生的邻居</p>
+                        </a>
+                        <a href="javascript:void(0)" title="苏生战铳 第30回">
+                            <p class="subtitle">第98回</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" title="妖宿山">
+                            <img class="cover" alt="妖宿山漫画国庆特辑" src="images/20161006214156_130x174_20.jpg">
+                            <img class="log" src="images/index_logo_hot.png">
+                        </a>
+                        <a href="javascript:void(0)" title="妖宿山">
+                            <p class="title">冠军小队</p>
+                        </a>
+                        <a href="javascript:void(0)" title="国庆特辑">
+                            <p class="subtitle">第35回</p>
+                        </a>
+                    </li>
+                    <li><a href="javascript:void(0)" title="宇久纷华·战国墨者异传">
+                        <img class="cover" alt="宇久纷华·战国墨者异传漫画32" src="images/4028_c.jpg">
+                        <img class="log" src="images/index_logo_hot.png">
+                    </a>
+                        <a href="javascript:void(0)" title="宇久纷华·战国墨者异传">
+                            <p class="title">足球骑士</p>
+                        </a>
+                        <a href="javascript:void(0)" title="宇久纷华·战国墨者异传 第32回">
+                            <p class="subtitle">第45回</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" title="我和天师有个约会">
+                            <img class="cover" alt="我和天师有个约会漫画37" src="images/4545_c.jpg">
+                            <img class="log" src="images/index_logo_hot.png">
+                        </a>
+                        <a href="javascript:void(0)" title="我和天师有个约会">
+                            <p class="title">钻石王牌</p>
+                        </a>
+                        <a href="javascript:void(0)" title="我和天师有个约会 第37回">
+                            <p class="subtitle">第87回</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" title="神话战线">
+                            <img class="cover" alt="神话战线漫画8" src="images/7594_c.jpg">
+                            <img class="log" src="images/index_logo_hot.png">
+                        </a>
+                        <a href="javascript:void(0)" title="神话战线">
+                            <p class="title">元气少女缘结神</p>
+                        </a>
+                        <a href="javascript:void(0)" title="神话战线 第8回">
+                            <p class="subtitle">第23回</p>
+                        </a>
+                    </li>
+                    <li><a href="javascript:void(0)" title="重返地平线">
+                        <img class="cover" alt="重返地平线漫画4" src="images/7663_c.jpg">
+                    </a>
+                        <a href="" title="重返地平线">
+                            <p class="title">请叫我英雄</p>
+                        </a>
+                        <a href="javascript:void(0)" title="重返地平线 第4回">
+                            <p class="subtitle">第35回</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" title="再造空间">
+                            <img class="cover" alt="再造空间漫画45" src="images/7724_c.jpg">
+                            <img class="log" src="images/index_logo_hot.png">
+                        </a>
+                        <a href="" title="再造空间">
+                            <p class="title">旅行日记</p>
+                        </a>
+                        <a href="javascript:void(0)" title="再造空间 第45回">
+                            <p class="subtitle">第34回</p>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <!-- 右边部分========================================开始-->
+        <div class="sideBar nobottom">
+            <div class="top">
+                    <span class="fr select">
+                        <span>
+                            <a href="javascript:void(0)" class="active">周榜</a>
+                             <a href="javascript:void(0)" >月榜</a>
+                             <a href="javascript:void(0)" >总榜</a>
+                        </span>
+                    </span>
+                <img class="logo" src="images/index_title_logo_1.png">
+                <span class="t">热门漫画连载榜</span>
+            </div>
+            <div id="listsThree">
+                <div class="list show">
+                    <div class="one">
+                        <a href="javascript:void(0)" title="Bloody Girl">
+                            <img src="images/20161002220512_130x174_18.jpg" class="cover" alt="Bloody Girl漫画43">
+                        </a>
+                        <img src="images/index_top_one.png" class="tip">
+                        <div class="info">
+                            <p class="title">
+                                <a href="javascript:void(0)" title="Bloody Girl">发圈之恋</a>
+                            </p>
+                            <p class="subtitle"> 作者： 岩千佳 </p>
+                            <p class="subtitle">类型：少女爱情</p>
+                        </div>
+                        <div class="border"></div>
+                    </div>
+                    <ul>
+                        <li>
+                            <a href="javascript:void(0)" title="尼洛亚-NIRAYA-">
+                                <div class="tip tip_2">2</div>
+                                <div class="title">告白传说</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="苏生战铳">
+                                <div class="tip tip_3">3</div>
+                                <div class="title">全职法师</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="神话战线">
+                                <div class="tip tip_other">4</div>
+                                <div class="title">足球骑士</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="我和天师有个约会">
+                                <div class="tip tip_other">5</div>
+                                <div class="title">只手遮天</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="退休的勇者们">
+                                <div class="tip tip_other">6</div>
+                                <div class="title">永生之朽</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="images/manhua-bailianchengshen/" title="百炼成神">
+                                <div class="tip tip_other">7</div>
+                                <div class="title">百炼成神</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="images/manhua-yinyangzhaijibian/" title="阴阳宅急便">
+                                <div class="tip tip_other">8</div>
+                                <div class="title">冠军小队</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="images/manhua-yujiufenhua/" title="宇久纷华·战国墨者异传">
+                                <div class="tip tip_other">9</div>
+                                <div class="title">神木</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="images/manhua-duantoudao/" title="断头岛">
+                                <div class="tip tip_other">10</div>
+                                <div class="title">元气少女</div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="list ">
+                    <div class="one">
+                        <a href="javascript:void(0)" title="Bloody Girl">
+                            <img src="images/20160829141946_130x174.jpg"
+                                 class="cover" alt="Bloody Girl漫画43">
+                        </a>
+                        <img src="images/index_top_one.png" class="tip">
+
+                        <div class="info">
+                            <p class="title">
+                                <a href="javascript:void(0)" title="Bloody Girl">Bloody Girl</a>
+                            </p>
+                            <p class="subtitle"> 作者： 牛佬 瑛麒动漫 </p>
+                            <p class="subtitle">类型：少年热血</p>
+                        </div>
+                        <div class="border"></div>
+                    </div>
+                    <ul>
+                        <li>
+                            <a href="javascript:void(0)" title="尼洛亚-NIRAYA-">
+                                <div class="tip tip_2">2</div>
+                                <div class="title">尼洛亚-NIRAYA-</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="神话战线">
+                                <div class="tip tip_3">3</div>
+                                <div class="title">神话战线</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="苏生战铳">
+                                <div class="tip tip_other">4</div>
+                                <div class="title">苏生战铳</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="重返地平线">
+                                <div class="tip tip_other">5</div>
+                                <div class="title">重返地平线</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="我和天师有个约会">
+                                <div class="tip tip_other">6</div>
+                                <div class="title">我和天师有个约会</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="再造空间">
+                                <div class="tip tip_other">7</div>
+                                <div class="title">再造空间</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="本草仙云之梦白蛇">
+                                <div class="tip tip_other">8</div>
+                                <div class="title">本草仙云之梦白蛇</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="暗界追冥狩">
+                                <div class="tip tip_other">9</div>
+                                <div class="title">暗界追冥狩</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="阴阳宅急便">
+                                <div class="tip tip_other">10</div>
+                                <div class="title">阴阳宅急便</div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="list">
+                    <div class="one">
+                        <a href="javascript:void(0)" title="Bloody Girl">
+                            <img src="images/20160411124934_130x174_12.jpg" class="cover" alt="Bloody Girl漫画43">
+                        </a>
+                        <img src="images/index_top_one.png" class="tip">
+                        <div class="info">
+                            <p class="title">
+                                <a href="javascript:void(0)" title="Bloody Girl">双星阴阳师</a>
+                            </p>
+                            <p class="subtitle"> 作者：双星 </p>
+                            <p class="subtitle">类型：少年热血</p></div>
+                        <div class="border"></div>
+                    </div>
+                    <ul>
+                        <li>
+                            <a href="javascript:void(0)" title="再造空间">
+                                <div class="tip tip_2">2</div>
+                                <div class="title">再造空间</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="柯南">
+                                <div class="tip tip_2">3</div>
+                                <div class="title">柯南</div>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="我和天师有个约会">
+                                <div class="tip tip_other">4</div>
+                                <div class="title">我和天师有个约会</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="暗界追冥狩">
+                                <div class="tip tip_other">5</div>
+                                <div class="title">暗界追冥狩</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="阴阳宅急便">
+                                <div class="tip tip_other">6</div>
+                                <div class="title">阴阳宅急便</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="基因猎人">
+                                <div class="tip tip_other">7</div>
+                                <div class="title">基因猎人</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="镖人">
+                                <div class="tip tip_other">8</div>
+                                <div class="title">镖人</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" title="百炼成神">
+                                <div class="tip tip_other">9</div>
+                                <div class="title">百炼成神</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="尼洛亚-NIRAYA-">
+                                <div class="tip tip_other">10</div>
+                                <div class="title">尼洛亚-NIRAYA-</div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- tab栏切换-->
+            <script>
+                $(function () {//入口函数
+                    $(".top>.select>span>a").mouseenter(function(){
+                        $(this).addClass("active").siblings("a").removeClass("active");
+                        //鼠标放到ul中的某个li上，该li对应索引值的下面的div添加selected。其他的div删除selected
+                        $("#listsThree>div").eq($(this).index()).addClass("show").siblings("div").removeClass("show");
+                    });
+                });
+            </script>
+        </div>
+    </div>
+</div>
+
+<!-- 底部栏 -->
+<div class="footer">
+    <p>Copyright (C) 2005-2011 www.dm5.com 动漫屋 瑞安市我喜欢网络有限公司 All rights reserved
+        <img src="images/i_lo2.gif" border="0" class="logo">
+    </p>
+    <p>文网文：浙网文[2015]0289-059号 网站备案：浙ICP备09075556号-5</p>
+</div>
+
+<!--跳转到顶部-->
+<div class="moveUp">
+    <a href="manhua.html#headerPart">
+        <img src="images/top_ctnew.png" alt="往上"/>
+        <p>顶部</p>
+    </a>
+</div>
+
+
+
+<!--固定导航栏js-->
+<script>
+
+    var header=my$("headerPart");
+    var navBar=my$("navBar");
+    var bannerPart=my$("bannerPart");
+
+    onscroll=function(){
+//        console.log(scroll().top);
+//        console.log(header.offsetHeight);
+        if(scroll().top>header.offsetHeight){
+            navBar.className="navBar fixed";
+            bannerPart.style.paddingTop=navBar.offsetHeight+"px";
+        }else{
+            navBar.className="navBar";
+            bannerPart.style.paddingTop=0+"px";
+        }
+    };
+</script>
+<!--轮播图-->
+<script>
+    var box = my$("box");//先获取层
+    var bannerForm = box.children[0];//获取bannerForm层
+    var imgWidth = bannerForm.offsetWidth;//获取改层的宽度
+    var ul = bannerForm.children[0];//获取ul
+    var lis = ul.children;//获取ul中的所有li
+    var ol = bannerForm.children[1];//获取ol
+    var pic = 0;
+    //创建li，根据ul中所有li的个数,循环遍历进行创建li并加入到ol中
+    for (var i = 0; i < lis.length; i++) {
+        var li = document.createElement("li");
+        ol.appendChild(li);
+        li.innerHTML = (i + 1);//设置li中的内容
+        li.setAttribute("index", i);//为了移动图片,设置一个自定义属性,值从0开始
+        li.onmouseover = function () {//为每个li注册鼠标进入事件
+            for (var j = 0; j < ol.children.length; j++) {//设置样式，排他的功能
+                ol.children[j].removeAttribute("class");
+            }
+            this.className = "current";
+            //移动图片
+            //获取当前li中index的属性的值,和图片的宽度(bannerForm的宽度)相乘
+            var index = parseInt(this.getAttribute("index"));
+            var target = -index * imgWidth;
+            animate1(ul, target);
+            pic = parseInt(this.getAttribute("index"));
+        };
+    }
+    ol.children[0].className = "current";//设置ol中的第一个li标签引用类样式
+    ul.appendChild(ul.children[0].cloneNode(true));//设置ul中添加一个li,最后一个Li中显示图片就是ul中第一个Li中的图片
+    //鼠标进入到层中显示左右焦点按钮
+    //为box注册鼠标进入和离开的事件
+    var setId = null;//定义一个变量用来保存计时器的id
+    box.onmouseover = function () {
+        my$("arr").style.display = "block";
+        clearInterval(setId);
+    };
+    box.onmouseout = function () {
+        my$("arr").style.display = "none";
+        setId = setInterval(rightHandle, 2500);
+    };
+    setId = setInterval(rightHandle, 2500);
+    my$("right").onclick = rightHandle;////为焦点层中的左右按钮注册点击事件
+    function rightHandle() {
+        if (pic == lis.length - 1) {
+            pic = 0;
+            ul.style.left = 0 + "px";
+        }
+        pic++;
+        var target = -pic * imgWidth;
+        animate1(ul, target);
+        if (pic == lis.length - 1) {
+            ol.children[0].className = "current";
+            ol.children[ol.children.length - 1].removeAttribute("class");
+        } else {
+            //进行排他
+            for (var i = 0; i < ol.children.length; i++) {
+                ol.children[i].removeAttribute("class");
+            }
+            ol.children[pic].className = "current";//当前按钮对应的li有类样式
+        }
+    }
+    my$("left").onclick = function () {
+        if (pic == 0) {
+            pic = lis.length - 1;
+            ul.style.left = -pic * imgWidth + "px";
+        }
+        pic--;
+        var target = -pic * imgWidth;
+        animate1(ul, target);
+        for (var i = 0; i < ol.children.length; i++) {
+            ol.children[i].removeAttribute("class");
+        }
+        ol.children[pic].className = "current";
+    };
+</script>
+</body>
+</html>

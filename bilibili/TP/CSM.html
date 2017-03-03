@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            font: 700 24px "微软雅黑";
+        }
+        .csm{
+            width: 500px;
+            height: 300px;
+            position: relative;
+        }
+        .fir,.mover{
+            color: #DC5381;
+            opacity: 0.8;
+        }
+        .fir{
+            font-size: 35px;
+            position: absolute;
+            top: 50px;
+            left:200px;
+            display: none;
+        }
+        .mover{
+            width: 500px;
+            height: 300px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            /*display: none;*/
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+        .mover span{
+            position: absolute;
+            left: 150px;
+            top: 60px;
+        }
+        .mover .span1{
+            left: 270px;
+        }
+    </style>
+    <script src="js/jquery-1.11.1.js"></script>
+    <script>
+        $(function(){
+            var str="中......";
+            var arr=str.split("");
+            var newStr="";
+            var num=0;
+            var setId=null;
+            function TP() {
+                if (num == arr.length) {
+                    clearInterval(setId);
+                    num=0;
+                    newStr="";
+                    setId=setInterval(TP,500);
+                    return;
+                }
+                    newStr += arr[num];
+                    $(".mover .span1").text(newStr);
+                    num++;
+
+            }
+            setId=setInterval(TP,500);
+            $(".csm").mouseenter(function(){
+                $(".fir").hide();
+                $(".mover").show();
+                setId=setInterval(TP,500);
+            });
+            $(".csm").mouseleave(function(){
+                $(".fir").show();
+                $(".mover").hide();
+                $(".mover p").text("");
+                clearInterval(setId);
+            });
+        })
+    </script>
+</head>
+<body>
+
+<div class="csm">
+    <a href="javascript:void(0)"><img src="images/TP.jpg" width="500" height="300"/></a>
+    <div class="fir">传送门~</div>
+    <div class="mover"><span>传送门启动</span><span class="span1"></span></div>
+</div>
+</body>
+</html>

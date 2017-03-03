@@ -1,0 +1,1342 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>版权所有--刘欢</title>
+    <link href="css/public.css" rel="stylesheet" type="text/css"/>
+    <link href="css/index.css" rel="stylesheet" type="text/css"/>
+    <link href="css/swiper.css" rel="stylesheet" type="text/css"/>
+    <script src="jquery/jquery-1.11.1.min.js"></script>
+    <!--<script src="js/common.js"></script>-->
+
+    <script>
+        //设置顶部品牌层
+        $(function () {
+            $(".roseonly_map").mouseenter(function () {
+                $(".roseonly_map_list").css("display", "block");
+            });
+            $(".roseonly_map").mouseleave(function () {
+                $(".roseonly_map_list").css("display", "none");
+            });
+        })
+    </script>
+    <script>
+        //新品上市中间的透明度设置
+        $(function () {
+            $(".new_xp_img").mouseenter(function () {
+                $(this).children("img").css("opacity", 0.5);
+                $(this).siblings(".new_xp_img").children("img").css("opacity", 0.5);
+            });
+            $(".new_xp_img").mouseleave(function () {
+                $(this).find("img").css("opacity", 1);
+            });
+        });
+        //字上的动画
+
+        $(function () {
+            $(".new_xp").mouseenter(function () {
+                $(this).children(".erweima").slideDown(1000);
+                $(this).siblings(".new_xp").children(".erweima").hide();
+
+            });
+            $(".new_xp").mouseleave(function () {
+                $(this).children(".erweima").hide();
+
+            });
+        })
+    </script>
+    <!--固定导航栏-->
+    <!--<script>-->
+        <!--$(window).load(function () {-->
+            <!--$(document).scroll(function () {-->
+                <!--if ($(document).scrollTop() > ($(".logo-container").height() + $(".header").height())) {-->
+                    <!--$(".nav-container").css({"position": "fixed", "top": 0});-->
+                    <!--$(".container").css({"margin-top": $(".nav-container").height()});-->
+                <!--} else {-->
+                    <!--$(".nav-container").css({"position": "static"});-->
+                    <!--$(".container").css({"margin-top": 0});-->
+                <!--}-->
+            <!--});-->
+
+        <!--})-->
+    <!--</script>-->
+    <script>
+        //设置导航栏特效
+        $(function () {
+
+            $("#nav>li").mouseenter(function () {
+                $(this).children(".menus2").stop().fadeIn(500);
+            });
+            //2.放上去显示移开隐藏。
+            $("#nav>li").mouseleave(function () {
+                $(this).children(".menus2").stop().fadeOut(500);
+            });
+        });
+    </script>
+    <!--切换tab-->
+    <script>
+        $(function () {
+            $('.num').children().eq(0).addClass('cur');
+            $('.pic').children().eq(0).show();
+            var change = 0;
+            $(".hotPic .num li").mouseenter(function () {
+                change = $(".hotPic .num li").index(this);
+                showPic(change);
+            });
+
+            function showPic(i) {
+                $(".hotPic .num li").eq(i).addClass("cur").siblings("li").removeClass("cur");
+                $(".hotPic .pic li").eq(i).stop(true, true).fadeIn(0).siblings("li").fadeOut(0);
+                $(".hotPic .text p").eq(i).show().siblings("p").hide();
+            }
+        });
+
+    </script>
+    <!--//回到顶部-->
+    <script>
+        function backToTop() {
+            $('html,body').animate({
+                "scrollTop": 0
+            }, 500);
+        }
+    </script>
+    <script>
+//        设置大图的遮挡层
+    $(function(){
+        $(".mgxf_m_l").mouseenter(function(){
+//            alert(1);
+            $(this).find(".f_in").fadeIn(1000);
+            $(this).siblings(".mgxf_m_l").find(".f_in").hide();
+        });
+        $(".mgxf_m_l").mouseleave(function(){
+            $(this).find(".f_in").fadeOut();
+
+        });
+    })
+    </script>
+    <script>
+        //        设置小图的遮挡层
+        $(function(){
+            $(".mgxf_m_r a").mouseenter(function(){
+//            alert(1);
+                $(this).find(".f_out").stop().slideDown(1000);
+                $(this).siblings(".mgxf_m_r a").find(".f_out").hide();
+            });
+            $(".mgxf_m_r a").mouseleave(function(){
+                $(this).find(".f_out").stop().slideUp();
+
+            });
+        })
+    </script>
+    <!--注册-->
+    <script>
+        $(function(){
+            $("#zhuce").mouseenter(function(){
+//                alert(1);
+                $(this).find("#dv").slideDown();
+            });
+
+            $(".ipt3").click(function(){
+                $(".register_container").hide();
+            })
+        })
+    </script>
+    <script>
+        window.onload=function(){
+
+            function checkTxt(element,reg) {
+                element.onblur=function () {
+                    if(reg.test(element.value)){
+                        element.nextElementSibling.innerHTML="输入正确";
+                        element.nextElementSibling.style.color="green";
+                    }else{
+                        //匹配不成功
+                        element.nextElementSibling.innerHTML="输入有误";
+                        element.nextElementSibling.style.color="red";
+                    }
+                };
+            }
+
+            var qq=document.getElementById("qq");
+            var qqReg=/^[1-9][0-9]{4,11}$/;
+            //手机号码
+            var phone=document.getElementById("phone");
+            var phoneReg=/^1([358][0-9][0-9]{8})|([4][7][0-9]{8})|([7][0781][0-9]{8})$/;
+            //邮箱
+            var eMail=document.getElementById("e-mail");
+            var emailReg=/^[0-9a-zA-Z_.-]+[@][0-9a-zA-Z_-]+([.][a-zA-Z]+){1,2}$/;
+            //座机
+            var telephone=document.getElementById("telephone");
+            var telephoneReg=/^0[0-9]{2,3}[-][0-9]{7,8}$/;
+            //姓名
+            var fullName=document.getElementById("fullName");
+            var fullNameReg=/^[\u4e00-\u9fa5]{2,6}$/;
+
+
+            //qq
+            checkTxt(qq,qqReg);
+            checkTxt(phone,phoneReg);//手机的
+            checkTxt(eMail,emailReg);//邮箱
+            checkTxt(telephone,telephoneReg);//座机号码
+            checkTxt(fullName,fullNameReg);//姓名
+
+        };
+    </script>
+    <script>
+        $(function(){
+            $(".ipt2").click(function(){
+                $(".register_container").find("input").val("");
+
+            })
+        })
+    </script>
+</head>
+<body>
+<!--顶部B-->
+<div class="header">
+    <div class="head">
+        <div class="roseonly_map" id="roseonly_map">
+            <span class="roseonly_map-icon"></span>
+            <a>品牌</a>
+
+            <div class="roseonly_map_list" id="roseonly_map_list">
+                <a href="#">roseonly</a>
+                <a href="#">roseonly wedding</a>
+            </div>
+        </div>
+        <a href="#" class="roseonly-logo" id="tag_roseonly"></a>
+        <a href="#" class="larose-logo" id="tag_zhuanai"></a>
+
+        <div class="logo_line"></div>
+        <div class="right">
+            <a href="#"><span class="h_font">登录</span><span class="h_line">|</span></a>
+            <a href="#" id="zhuce"><span class="h_font">注册</span><span class="h_line">|</span>
+            <!--注册-->
+            <div class="register_container" id="dv">
+                <label>Q Q</label><input type="text" id="qq"><span></span><br/>
+                <label>手机</label><input type="text" id="phone"><span></span><br/>
+                <label>邮箱</label><input type="text" id="e-mail"><span></span><br/>
+                <label>座机</label><input type="text" id="telephone"><span></span><br/>
+                <label>姓名</label><input type="text" id="fullName"><span></span><br/>
+                <input class="ipt1" type="submit" value="提交"/>
+                <input class="ipt2" type="reset" value="重置" />
+                <button class="ipt3"><img src="images/lu_close.png" alt="" id="register_close"/></button>
+            </div>
+            </a>
+
+            <a href="#" class="right-shop"></a>
+            <span id="cartNum" class="cartNum">(0)</span>
+        </div>
+    </div>
+</div>
+<!--顶部-->
+
+<!--容器B-->
+<div class="logo-container">
+    <a href="#" class="logo_nbtn">
+        <img src="images/14659848743575108.png"/>
+    </a>
+</div>
+<!--容器 E-->
+
+<!--导航 开始  动态创建-->
+<div class="nav-container" id="topmenus">
+    <ul id="nav">
+        <li>
+            <a href="#" class="topmenu_1" id="topmenu_1">鲜花玫瑰</a>
+
+            <div class="menus2" id="menus1" style="display: none">
+                <div class="menus">
+                    <div class="number1">
+                        <a href="#">
+                            <span class="number1_add">玫瑰长盒</span>
+                        </a>
+                        <a href="#">
+                            <span class="number1_add">玫瑰手捧</span>
+                        </a>
+                    </div>
+                    <div class="number1">
+                        <a href="#"><span class="number1_add">系列</span></a>
+                        <a href="#"><span>经典永续</span></a>
+                        <a href="#"><span>恒久真爱</span></a>
+                        <a href="#"><span>LINE FRIENDS专属</span></a>
+                        <a href="#"><span>爱在满怀</span></a>
+                        <a href="#"><span>星座经典</span></a>
+                        <a href="#"><span>love roseonly</span></a>
+                    </div>
+                    <a href="#" class="menus_pic" style="float: right">
+                        <img src="images/14728103152818359.jpg" alt=""/>
+                    </a>
+                </div>
+            </div>
+        </li>
+        <li>
+            <a href="#" class="topmenu_1" id="topmenu_2">永生玫瑰</a>
+
+            <div class="menus2" id="menus2">
+                <div class="menus">
+                    <div class="number1">
+                        <a href="#"><span class="number1_add">音乐玫瑰</span></a>
+                        <a href="#"><span class="number1_add">玫瑰圆盒</span></a>
+                        <a href="#"><span class="number1_add">玫瑰方盒</span></a>
+                        <a href="#"><span class="number1_add">玫瑰心形盒</span></a>
+                        <a href="#"><span class="number1_add">玫瑰长盒</span></a>
+                    </div>
+                    <div class="number1">
+                        <a href="#"><span class="number1_add">系列</span></a>
+                        <a href="#"><span>星座经典</span></a>
+                        <a href="#"><span>全世爱</span></a>
+                        <a href="#"><span>为爱而生</span></a>
+                        <a href="#"><span>甜蜜心动</span></a>
+                    </div>
+                    <div class="number1">
+                        <a href="#"><span class="number1_add">经典永续</span></a>
+                        <a href="#"><span>一生一世</span></a>
+                        <a href="#"><span>满满的爱</span></a>
+                        <a href="#"><span>诗意童话</span></a>
+                        <a href="#"><span>loveStory</span></a>
+                    </div>
+                    <a href="#" class="menus_pic" style="float: right">
+                        <img src="images/14728103290415966.jpg" alt=""/>
+                    </a>
+                </div>
+            </div>
+        </li>
+        <li>
+            <a href="#" class="topmenu_1" id="topmenu_3">玫瑰珠宝</a>
+
+            <div class="menus2" id="menus3">
+                <div class="menus">
+                    <div class="number1">
+                        <a href="#"><span class="number1_add">项链</span></a>
+                        <a href="#"><span class="number1_add">手链</span></a>
+                        <a href="#"><span class="number1_add">耳饰</span></a>
+                        <a href="#"><span class="number1_add">对戒</span></a>
+                        <a href="#"><span class="number1_add">套装</span></a>
+                    </div>
+                    <div class="number1">
+                        <a href="#"><span class="number1_add"> 玫瑰珠宝</span></a>
+                        <a href="#"><span>玫瑰经典</span></a>
+                        <a href="#"><span>星座经典</span></a>
+                        <a href="#"><span>生辰石</span></a>
+                        <a href="#"><span>恒久经典</span></a>
+                        <a href="#"><span>全心全意</span></a>
+                        <a href="#"><span>时光无痕</span></a>
+                    </div>
+                    <div class="number1">
+                        <a href="#"><span class="number1_add"> 玫瑰饰品</span></a>
+                        <a href="#"><span>幸运精灵</span></a>
+                        <a href="#"><span>时光之吻</span></a>
+                        <a href="#"><span>爱之礼赞</span></a>
+                        <a href="#"><span>全心全意</span></a>
+                        <a href="#"><span>心心相印</span></a>
+                        <a href="#"><span> love roseonly</span></a>
+                    </div>
+                    <a href="#" class="menus_pic" style="float: right">
+                        <img src="images/14728103505869889.jpg" alt=""/>
+                    </a>
+                </div>
+            </div>
+        </li>
+        <li>
+
+            <a href="#" class="topmenu_1" id="topmenu_4">生日推荐</a>
+
+            <div class="menus2" id="menus4">
+                <div class="menus">
+                    <div class="number1">
+                        <a href="#"><span class="number1_add">音乐玫瑰</span></a>
+                        <a href="#"><span class="number1_add">永生玫瑰</span></a>
+                        <a href="#"><span class="number1_add">鲜花玫瑰</span></a>
+                        <a href="#"><span class="number1_add">生辰石</span></a>
+                        <a href="#"><span class="number1_add">十二生肖</span></a>
+                        <a href="#"><span class="number1_add">礼品</span></a>
+                        <a href="#"><span class="number1_add">男士礼品</span></a>
+                        <a href="#"><span class="number1_add">送亲人朋友</span></a>
+                    </div>
+                    <div class="number1">
+                        <a href="#"><span class="number1_add">当月星座</span></a>
+                        <a href="#"><span>天秤座</span></a>
+                        <a href="#"><span>天蝎座</span></a>
+                        <a href="#"><span>射手座</span></a>
+                        <a href="#"><span>摩羯座</span></a>
+                        <a href="#"><span>水瓶座</span></a>
+                    </div>
+                    <div class="number1">
+                        <a href="#"><span class="number1_add">双鱼座</span></a>
+                        <a href="#"><span>白羊座</span></a>
+                        <a href="#"><span>金牛座</span></a>
+                        <a href="#"><span>双子座</span></a>
+                        <a href="#"><span>巨蟹座</span></a>
+                        <a href="#"><span>狮子座</span></a>
+                        <a href="#"><span>处女座</span></a>
+                    </div>
+                    <a href="#" class="menus_pic" style="float: right">
+                        <img src="images/14737493203429917.jpg" alt=""/>
+                    </a>
+                </div>
+            </div>
+        </li>
+        <li>
+            <a href="#" class="topmenu_1" id="topmenu_5">liveStory</a>
+
+            <div class="menus2" id="menus5">
+                <div class="menus">
+                    <div class="number1">
+                        <a href="#"><span class="number1_add">鲜花</span></a>
+                        <a href="#"><span class="number1_add">精选长盒</span></a>
+                    </div>
+                    <div class="number1">
+                        <a href="#"><span class="number1_add"> 永生花</span></a>
+                        <a href="#"><span>方盒</span></a>
+                        <a href="#"><span>圆盒</span></a>
+                        <a href="#"><span>六角盒</span></a>
+                    </div>
+                    <div class="number1">
+                        <a href="#"><span class="number1_add">饰品</span></a>
+                        <a href="#"><span>项链</span></a>
+                        <a href="#"><span>手链</span></a>
+                        <a href="#"><span>耳饰</span></a>
+                    </div>
+                    <a href="#" class="menus_pic" style="float: right">
+                        <img src="images/14728155077167758.jpg" alt=""/>
+                    </a>
+                </div>
+            </div>
+        </li>
+        <li><a href="#">专卖店</a></li>
+        <li><a href="#">誓言世界</a></li>
+    </ul>
+</div>
+
+    <!--轮播图B-->
+    <div class="container clearfix" id="swiper" style="width: 1240px;height: 450px;overflow: hidden" >
+        <!--轮播图B-->
+            <div class="swiper-slide">
+                <ul>
+                    <li><img src="images/1.jpg" width="1240" height="450" title="珠宝季" alt="珠宝季" border="0"/></li>
+                    <li> <img src="images/2.jpg" width="1240" height="450" title="珠宝季" alt="珠宝季" border="0"/></li>
+                    <li> <img src="images/3.jpg" width="1240" height="450" title="珠宝季" alt="珠宝季" border="0"/></li>
+                    <li><img src="images/4.jpg" width="1240" height="450" title="珠宝季" alt="珠宝季" border="0"/></li>
+                </ul>
+                <ol>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ol>
+            </div>
+            <!--<div id="arr"><span id="left">&lt;</span><span id="right">&gt;</span></div>-->
+
+        <script>
+            $(function(){
+                $("#swiper ul li").eq(0).show().siblings().hide();
+                $("#swiper ol li").on("click",function(){
+                    var index=$(this).index();
+//                    alert(1);
+                    $("#swiper ul li").filter(":visible").fadeOut(1200).end().eq(index).fadeIn(2000)
+
+                })
+            })
+
+        </script>
+        <!--轮播图E-->
+    </div>
+<!-- 新品上新 经典热卖 当月星座 明星同款 B -->
+<div class="brand clearfix">
+    <div class="new_content">
+        <div class="new_con1" style="margin-top:25px">
+            <div class="new_xp">
+                <a href="#">
+                    <div class="new_xp_img">
+                        <img src="images/14725274565658985.jpg" alt="">
+                    </div>
+                    <div class="new_xp_txt">
+                        <a href="#">新品上新</a>
+                    </div>
+                </a>
+                <!--二维码-->
+                <div class="erweima"
+                     style="display: none ; Z-index:30000;position: absolute; bottom: 60px; left: 80px;">
+                    <img src="images/14652903743497300.jpg" alt=""/>
+                </div>
+            </div>
+            <div class="new_xp">
+                <a href="#">
+                    <div class="new_xp_img">
+                        <img src="images/14690102560686878.jpg" alt="">
+                    </div>
+                    <div class="new_xp_txt">
+                        <a href="#">经典热卖</a>
+                    </div>
+                </a>
+                <!--二维码-->
+                <div class="erweima"
+                     style="display: none ; Z-index:30000;position: absolute; bottom: 60px; left: 80px;">
+                    <img src="images/14652903743497300.jpg" alt=""/>
+                </div>
+            </div>
+            <div class="new_xp">
+                <a href="#">
+                    <div class="new_xp_img">
+                        <img src="images/14724519049423892.jpg" alt="">
+                    </div>
+                    <div class="new_xp_txt">
+                        <a href="#">当月星座</a>
+                    </div>
+                </a>
+                <!--二维码-->
+                <div class="erweima"
+                     style="display: none ; Z-index:30000;position: absolute; bottom: 60px; left: 80px;">
+                    <img src="images/14652903743497300.jpg" alt=""/>
+                </div>
+            </div>
+            <div style="margin-right:0" class="new_xp">
+                <a href="#">
+                    <div class="new_xp_img" style="position: relative">
+                        <img src="images/14690102021785355.jpg" alt="">
+                    </div>
+
+                    <div class="new_xp_txt">
+                        <a href="#">明星同款</a>
+
+
+                    </div>
+                </a>
+                <!--二维码-->
+                <div class="erweima"
+                     style="display: none ; Z-index:30000;position: absolute; bottom: 60px; left: 80px;">
+                    <img src="images/14652903743497300.jpg" alt=""/>
+                </div>
+            </div>
+
+        </div>
+        <!-- 新品上新 经典热卖 当月星座 明星同款 E -->
+        <!--热卖单品推荐B-->
+        <div class="new_title">
+            <p>热卖单品推荐</p>
+        </div>
+        <!--热卖单品推荐E-->
+
+        <div class="danpin">
+            <div class="indexPicBox">
+                <div class="hotPic">
+                    <!--鲜花玫瑰 -玫瑰饰品 标题B-->
+                    <div class="num" id="num">
+                        <ul>
+                            <li class="cur">鲜花玫瑰
+                                <span class="tab_line"></span>
+                            </li>
+                            <li>永生玫瑰
+                                <span class="tab_line"></span>
+                            </li>
+                            <li>玫瑰珠宝
+                                <span class="tab_line"></span>
+                            </li>
+                            <li>玫瑰饰品</li>
+                        </ul>
+                    </div>
+                    <!--鲜花玫瑰 -玫瑰饰品 标题E-->
+                    <!--<自动切换商品 B-->
+                    <ul class=" pic" id="pic">
+                        <li style="display: block">
+                            <div>
+                                <a href="#" title="经典-朱砂" target="_blank">
+                                    <dl>
+                                        <dt><img src="images/14701945928768231.png" alt=""></dt>
+                                        <dd>
+                                            <h3>经典永续 19支</h3>
+
+                                            <p>鲜花玫瑰19支 </p>
+
+                                            <h2>￥1999.0</h2>
+                                        </dd>
+                                    </dl>
+                                </a>
+                                <a href="#" title="经典-许愿">
+                                    <dl>
+                                        <dt><img src="images/14713310643296359.png" alt=""></dt>
+                                        <dd>
+                                            <h3>经典永续 19支</h3>
+
+                                            <p>鲜花玫瑰19支 </p>
+
+                                            <h2>￥2399.0</h2>
+                                        </dd>
+                                    </dl>
+                                </a>
+                                <a href="#" target="_blank">
+                                    <dl>
+                                        <dt><img src="images/14332135201738236.png" alt=""></dt>
+                                        <dd>
+                                            <h3>经典永续 11支</h3>
+
+                                            <p>鲜花玫瑰11支 </p>
+
+                                            <h2>￥1520.0</h2>
+                                        </dd>
+                                    </dl>
+                                </a>
+                                <a href="#" title="经典-约定" target="_blank">
+                                    <dl>
+                                        <dt><img src="images/14358178504388571.png" alt=""></dt>
+                                        <dd>
+                                            <h3>经典永续 19支</h3>
+
+                                            <p>鲜花玫瑰19支 </p>
+
+                                            <h2>￥1999.0</h2>
+                                        </dd>
+                                    </dl>
+                                </a>
+                            </div>
+                            <div>
+                                <a href="#" title="天秤座-天秤守护色 " target="_blank">
+                                    <dl>
+                                        <dt><img src="images/14429928979909449.png" alt=""></dt>
+                                        <dd>
+                                            <h3>星座经典 19支</h3>
+
+                                            <p>鲜花玫瑰19支 </p>
+
+                                            <h2>￥1999.0</h2>
+                                        </dd>
+                                    </dl>
+                                </a>
+                                <a href="#" title="经典-情动" target="_blank">
+                                    <dl>
+                                        <dt><img src="images/14352180975253160.png" alt=""></dt>
+                                        <dd>
+                                            <h3>经典永续 11支</h3>
+
+                                            <p>鲜花玫瑰11支 </p>
+
+                                            <h2>￥1520.0</h2>
+                                        </dd>
+                                    </dl>
+                                </a>
+                                <a href="#" target="_blank">
+                                    <dl>
+                                        <dt><img src="images/14701946196966356.png" alt=""></dt>
+                                        <dd>
+                                            <h3>经典永续 11支</h3>
+
+                                            <p>鲜花玫瑰11支 </p>
+
+                                            <h2>￥1520.0</h2>
+                                        </dd>
+                                    </dl>
+                                </a>
+                                <a href="#" target="_blank">
+                                    <dl>
+                                        <dt><img src="images/14358179636236241.png" alt=""></dt>
+                                        <dd>
+                                            <h3>经典永续 11支</h3>
+
+                                            <p>鲜花玫瑰11支 </p>
+
+                                            <h2>￥1520.0</h2>
+                                        </dd>
+                                    </dl>
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <a href="#" target="_blank">
+                                    <dl>
+                                        <dt><img src="images/14557858492967267.png" alt=""></dt>
+                                        <dd>
+                                            <h3>为爱而生 </h3>
+
+                                            <p>永生玫瑰 </p>
+
+                                            <h2>￥1999.0</h2>
+                                        </dd>
+                                    </dl>
+                                </a>
+                                <a href=" " title="宠爱-嫣红" target="_blank">
+                                    <dl>
+                                        <dt><img src="images/14667539477653628.png" alt=""></dt>
+                                        <dd>
+                                            <h3>一生一世 大型方盒</h3>
+
+                                            <p>永生玫瑰大型方盒 </p>
+
+                                            <h2>￥2199.0</h2>
+                                        </dd>
+                                    </dl>
+                                </a>
+                                <a href="#" title="倾心-嫣红" target="_blank">
+                                    <dl>
+                                        <dt><img src="images/14744387354691585.png" alt=""></dt>
+                                        <dd>
+                                            <h3>全世爱 中型心形盒</h3>
+
+                                            <p>永生玫瑰中型心形盒 </p>
+
+                                            <h2>￥1999.0</h2>
+                                        </dd>
+                                    </dl>
+                                </a>
+                                <a href="#" target="_blank">
+                                    <dl>
+                                        <dt><img src="images/14744384696894711.png" alt=""></dt>
+                                        <dd>
+                                            <h3>全世爱 中型圆盒</h3>
+
+                                            <p>永生玫瑰中型圆盒 </p>
+
+                                            <h2>￥1999.0</h2>
+                                        </dd>
+                                    </dl>
+                                </a>
+                            </div>
+                            <div>
+                                <a href="#" target="_blank">
+                                    <dl>
+                                        <dt><img src="images/14444669782533355.png" alt=""></dt>
+                                        <dd>
+                                            <h3>星座经典 </h3>
+
+                                            <p>永生玫瑰 </p>
+
+                                            <h2>￥999.0</h2>
+                                        </dd>
+                                    </dl>
+                                </a>
+                                <a href="#" title="经典-嫣红" target="_blank">
+                                    <dl>
+                                        <dt><img src="images/14746021697722164.png" alt=""></dt>
+                                        <dd>
+                                            <h3>经典永续 小型</h3>
+
+                                            <p>永生玫瑰小型 </p>
+
+                                            <h2>￥699.0</h2>
+                                        </dd>
+                                    </dl>
+                                </a>
+                                <a href="#" title="柔情-嫣红" target="_blank">
+                                    <dl>
+                                        <dt><img src="images/14526767636507552.png" alt=""></dt>
+                                        <dd>
+                                            <h3>满满的爱 中型圆盒</h3>
+
+                                            <p>永生玫瑰中型圆盒 </p>
+
+                                            <h2>￥1520.0</h2>
+                                        </dd>
+                                    </dl>
+                                </a>
+                                <a href="#" title="深情-嫣红" target="_blank">
+                                    <dl>
+                                        <dt><img src="images/14605149464327875.png" alt=""></dt>
+                                        <dd>
+                                            <h3>满满的爱 小型方盒</h3>
+
+                                            <p>永生玫瑰小型方盒 </p>
+
+                                            <h2>￥1314.0</h2>
+                                        </dd>
+                                    </dl>
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <a href="#" title="天秤座-18K玫瑰金" target="_blank">
+                                    <dl>
+                                        <dt><img src="images/14592329905436995.png" alt=""></dt>
+                                        <dd>
+                                            <h3>星座经典 项链</h3>
+
+                                            <p>玫瑰珠宝项链 </p>
+
+                                            <h2>￥4999.0</h2>
+                                        </dd>
+                                    </dl>
+                                </a>
+                                <a href="#" title="天秤座-18K玫瑰金" target="_blank">
+                                    <dl>
+                                        <dt><img src="images/14592240643249359.png" alt=""></dt>
+                                        <dd>
+                                            <h3>星座经典 手链</h3>
+
+                                            <p>玫瑰珠宝手链 </p>
+
+                                            <h2>￥2999.0</h2>
+                                        </dd>
+                                    </dl>
+                                </a>
+                                <a href="#" title="天秤座-18K玫瑰金" target="_blank">
+                                    <dl>
+                                        <dt><img src="images/14592323032542554.png" alt=""></dt>
+                                        <dd>
+                                            <h3>星座经典 耳饰</h3>
+
+                                            <p>玫瑰珠宝耳饰 </p>
+
+                                            <h2>￥3999.0</h2>
+                                        </dd>
+                                    </dl>
+                                </a>
+                                <a href="#" target="_blank">
+                                    <dl>
+                                        <dt><img src="images/14703049691425802.png" alt=""></dt>
+                                        <dd>
+                                            <h3>星座经典 项链</h3>
+
+                                            <p>玫瑰珠宝项链 </p>
+
+                                            <h2>￥2999.0</h2>
+                                        </dd>
+                                    </dl>
+                                </a>
+                            </div>
+                            <div>
+                                <a href="#" target="_blank">
+                                    <dl>
+                                        <dt><img src="images/14676296239706611.png" alt=""></dt>
+                                        <dd>
+                                            <h3>玫瑰经典 项链</h3>
+
+                                            <p>玫瑰珠宝项链 </p>
+
+                                            <h2>￥2999.0</h2>
+                                        </dd>
+                                    </dl>
+                                </a>
+                                <a href="#" target="_blank">
+                                    <dl>
+                                        <dt><img src="images/14727873855179914.png" alt=""></dt>
+                                        <dd>
+                                            <h3>玫瑰经典 手链</h3>
+
+                                            <p>玫瑰珠宝手链 </p>
+
+                                            <h2>￥2699.0</h2>
+                                        </dd>
+                                    </dl>
+                                </a>
+                                <a href="#" title="几何玫瑰-9K玫瑰金" target="_blank">
+                                    <dl>
+                                        <dt><img src="images/14732181213765216.png" alt=""></dt>
+                                        <dd>
+                                            <h3>玫瑰经典 项链</h3>
+
+                                            <p>玫瑰珠宝项链 </p>
+
+                                            <h2>￥2999.0</h2>
+                                        </dd>
+                                    </dl>
+                                </a>
+                                <a href="#" title="玫瑰经典-18K玫瑰金" target="_blank">
+                                    <dl>
+                                        <dt><img src="images/14697831639031901.png" alt=""></dt>
+                                        <dd>
+                                            <h3>玫瑰经典 项链</h3>
+
+                                            <p>玫瑰珠宝项链 </p>
+
+                                            <h2>￥3999.0</h2>
+                                        </dd>
+                                    </dl>
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <a href="#" title="爱之礼赞-朱砂" target="_blank">
+                                    <dl>
+                                        <dt><img src="images/14712315327414689.png" alt=""></dt>
+                                        <dd>
+                                            <h3>爱之礼赞 项链</h3>
+
+                                            <p>玫瑰饰品项链 </p>
+
+                                            <h2>￥2199.0</h2>
+                                        </dd>
+                                    </dl>
+                                </a>
+                                <a href="#" title="爱之礼赞-朱砂" target="_blank">
+                                    <dl>
+                                        <dt><img src="images/14712314886267117.png" alt=""></dt>
+                                        <dd>
+                                            <h3>爱之礼赞 手链</h3>
+
+                                            <p>玫瑰饰品手链 </p>
+
+                                            <h2>￥2199.0</h2>
+                                        </dd>
+                                    </dl>
+                                </a>
+                                <a href="#" title="心心念念-镀玫瑰金" target="_blank">
+                                    <dl>
+                                        <dt><img src="images/14434104964686708.png" alt=""></dt>
+                                        <dd>
+                                            <h3>全心全意 手链</h3>
+
+                                            <p>玫瑰饰品手链 </p>
+
+                                            <h2>￥1999.0</h2>
+                                        </dd>
+                                    </dl>
+                                </a>
+                                <a href="#" title="心心念念-镀白金" target="_blank">
+                                    <dl>
+                                        <dt><img src="images/14434104968583934.png" alt=""></dt>
+                                        <dd>
+                                            <h3>全心全意 手链</h3>
+
+                                            <p>玫瑰饰品手链 </p>
+
+                                            <h2>￥1999.0</h2>
+                                        </dd>
+                                    </dl>
+                                </a>
+                            </div>
+                            <div>
+                                <a href="#" title="时光之吻-镀玫瑰金" target="_blank">
+                                    <dl>
+                                        <dt><img src="images/14752285212627507.png" alt=""></dt>
+                                        <dd>
+                                            <h3>时光之吻 手镯</h3>
+
+                                            <p>玫瑰饰品手镯 </p>
+
+                                            <h2>￥1520.0</h2>
+                                        </dd>
+                                    </dl>
+                                </a>
+                                <a href="#" title="心心念念-镀白金" target="_blank">
+                                    <dl>
+                                        <dt><img src="images/14434103449739706.png" alt=""></dt>
+                                        <dd>
+                                            <h3>全心全意 耳饰</h3>
+
+                                            <p>玫瑰饰品耳饰 </p>
+
+                                            <h2>￥1999.0</h2>
+                                        </dd>
+                                    </dl>
+                                </a>
+                                <a href="#" title="申猴-镀白金" target="_blank">
+                                    <dl>
+                                        <dt><img src="images/14543838299975467.png" alt=""></dt>
+                                        <dd>
+                                            <h3>幸运精灵 项链</h3>
+
+                                            <p>玫瑰饰品项链 </p>
+
+                                            <h2>￥2199.0</h2>
+                                        </dd>
+                                    </dl>
+                                </a>
+                                <a href="#" target="_blank">
+                                    <dl>
+                                        <dt><img src="images/14543847204134704.png" alt=""></dt>
+                                        <dd>
+                                            <h3>幸运精灵 项链</h3>
+
+                                            <p>玫瑰饰品项链 </p>
+
+                                            <h2>￥2199.0</h2>
+                                        </dd>
+                                    </dl>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                    <!--<自动切换商品 E-->
+                </div>
+            </div>
+        </div>
+
+        <!--鲜花玫瑰 B-->
+        <div class="mgxf" id="first" style="margin-top:60px">
+            <div class="mgxf_top">
+                <div class="mgxf_top_l"> 鲜花玫瑰<span class="title_line">|</span> <span
+                        class="title_yw">Fresh Cut Rose</span>
+                </div>
+                <div class="mgxf_top_r">
+                    <a href="#" target="_blank">More
+                        <span class="more_sj">
+                            <img src="images/14684852581458638.png" alt="">
+                        </span>
+                    </a>
+                </div>
+            </div>
+            <div class="mgxf_m clear">
+                <div class="mgxf_m_l new_l">
+                    <a href="#" target="_blank"><img src="images/14659960399162258.jpg" alt="">
+
+                        <div class="f_in"> </div>
+                    </a>
+                </div>
+                <div class="mgxf_m_r new_r" id="boxx">
+
+                    <div class="small new_l hjza" id="small" style="position: relative">
+                        <img src="images/14752050813539531.jpg" alt="">
+                        <div class="mask" style=" width: 100px; height: 100px;background: rgba(255, 255, 0, 0.4);position: absolute;top:0px;left:0px; cursor: move; display: none;"></div>
+                    </div>
+                        <div class="big" id="big" style="display:none;width: 300px;height:300px;position:absolute;;left:1000px;z-index: 10000;">
+                            <img src="images/14321069672911037.png" alt=""/>
+                        </div>
+                    <script>
+                        var small=document.getElementById("small");
+                        var mask=small.children[1];
+                        var big=document.getElementById("big");
+                        var img=big.children[0];
+                        var boxx=document.getElementById("boxx");
+                        small.onmouseenter=function () {
+                            mask.style.display="block";
+                            big.style.display="block";
+                        };
+
+                        small.onmouseleave=function () {
+                            mask.style.display="none";
+                            big.style.display="none";
+                        };
+                        small.onmousemove=function (e) {
+                            var left=e.pageX-mask.offsetWidth/2;
+                            var top1=e.pageY-mask.offsetHeight/2;
+//                            console.log(top)
+                            var x=left-boxx.offsetLeft;
+                            var y=top1-boxx.offsetTop;
+//                            console.log(x);
+                            x=x<0?0:x;
+                            y=y<0?0:y;
+//                            console.log(top1-boxx.offsetTop);
+                            x=x>small.offsetWidth-mask.offsetWidth?small.offsetWidth-mask.offsetWidth:x;
+                            y=y>small.offsetHeight-mask.offsetHeight?small.offsetHeight-mask.offsetHeight:y;
+
+                            mask.style.left=x+"px";
+                            mask.style.top=y+"px";
+
+                             var imgMaxMove=img.offsetWidth-big.offsetWidth;
+                            var maskMaxMove=small.offsetWidth-mask.offsetWidth;
+
+
+                            var imgLeft=x*imgMaxMove/maskMaxMove;
+                            var imgTop=y*imgMaxMove/maskMaxMove;
+                            img.style.marginLeft=-imgLeft+"px";
+                            img.style.marginTop=-imgTop+"px";
+
+
+
+
+
+                        };
+
+                    </script>
+                    <a href="#" class="new_r">
+                        <img src="images/14695169335459959.jpg" alt="">
+
+                        <div class="f_out"></div>
+                    </a>
+                    <a href="#" class="new_l mgsp" target="_blank">
+                        <img src="images/14652877281146502.jpg" alt="">
+
+                        <div class="f_out"></div>
+                    </a>
+                    <a href="#" class="new_r mgsp" target="_blank">
+                        <img src="images/14728117428421702.jpg" alt="">
+
+                        <div class="f_out"></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!--鲜花玫瑰 E-->
+
+        <!--永生玫瑰 B-->
+        <div class="mgxf" id="second">
+            <div class="mgxf_top">
+                <div class="mgxf_top_l">永生玫瑰<span class="title_line">|</span><span
+                        class="title_yw">Preserved Rose</span></div>
+                <div class="mgxf_top_r">
+                    <a href="#" target="_blank">More
+                        <span class="more_sj" style="padding-left:1px">
+					        <img src="images/14684852581458638.png" alt="">
+                        </span>
+                    </a>
+                </div>
+            </div>
+            <div class="mgxf_m clear">
+                <div class="mgxf_m_l new_l">
+                    <a href="#" >
+                        <img src="images/14652879189712808.jpg" alt="">
+
+                        <div class="f_in"></div>
+                    </a>
+                </div>
+                <div class="mgxf_m_r new_r">
+                    <!--<a href="#" class="new_r">-->
+                        <!--<img src="images/.jpg" alt="">-->
+
+                        <!--<div class="f_out"></div>-->
+                    <!--</a>-->
+                    <!--<a href="#" class="new_r">-->
+                        <!--<img src="images/.jpg" alt="">-->
+
+                        <!--<div class="f_out"></div>-->
+                    <!--</a>-->
+                    <a href="#" class="new_l hjza" target="_blank">
+                        <img src="images/14752055054505903.jpg" alt="">
+
+                        <div class="f_out"></div>
+                    </a>
+                    <a href="#" class="new_r" target="_blank">
+                        <img src="images/14752053613464549.jpg" alt="">
+
+                        <div class="f_out"></div>
+                    </a>
+                    <a href="#" class="new_l mgsp" target="_blank">
+                        <img src="images/14652879452142051.jpg" alt="">
+
+                        <div class="f_out"></div>
+                    </a>
+                    <a href="#" class="new_r mgsp" target="_blank">
+                        <img src="images/14752264412079386.jpg" alt="">
+
+                        <div class="f_out"></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!--玫瑰珠宝-------------->
+        <div class="mgxf" id="third">
+            <div class="mgxf_top">
+                <div class="mgxf_top_l"> 玫瑰珠宝<span class="title_line">|</span> <span class="title_yw">Jewelry</span>
+                </div>
+                <div class="mgxf_top_r">
+                    <a href="#" target="_blank">
+                        More<span class="more_sj"><img src="images/14684852581458638.png" alt=""></span>
+                    </a>
+                </div>
+            </div>
+            <div class="mgxf_m clear">
+                <div class="mgxf_m_l new_l">
+                    <a href="#" target="_blank">
+                        <img src="images/14659960681003531.jpg" alt="">
+
+                        <div class="f_in"></div>
+                    </a>
+                </div>
+                <div class="mgxf_m_r new_r">
+                    <a href="#" target="_blank" class="new_l mgsp" style="margin-top:0">
+                        <img src="images/14688344757087979.jpg" alt="">
+
+                        <div class="f_out"></div>
+                    </a>
+
+                    <a href="#" class="new_r"><img src="images/14703664133205359.jpg" alt="">
+
+                        <div class="f_out"></div>
+                    </a>
+
+                    <a href="#" class="new_l hjza" style="margin-top:27px">
+                        <img src="images/14652881667111097.jpg" alt="">
+
+                        <div class="f_out"></div>
+                    </a>
+                    <a href="#" class="new_r mgsp">
+                        <img src="images/14652881983867051.jpg" alt="">
+
+                        <div class="f_out"></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!--玫瑰饰品 B-->
+        <div class="mgxf" id="forth">
+            <div class="mgxf_top">
+                <div class="mgxf_top_l"> 玫瑰饰品<span class="title_line">|</span> <span class="title_yw">Accessory</span>
+                </div>
+                <div class="mgxf_top_r">
+                    <a href="#">More
+                        <span class="more_sj">
+                            <img src="images/14684852581458638.png" alt="">
+                        </span>
+                    </a>
+                </div>
+            </div>
+            <div class="mgxf_m clear">
+                <div class="mgxf_m_l new_l">
+                    <a href="#">
+                        <img src="images/14703858625685852.jpg" alt="">
+
+                        <div class="f_in"></div>
+                    </a>
+                </div>
+                <div class="mgxf_m_r new_r">
+                    <a href="#" class="new_l hjza" target="_blank">
+                        <img src="images/14703024879648912.jpg" alt="">
+
+                        <div class="f_out"></div>
+                    </a>
+                    <a href="#" class="new_r">
+                        <img src="images/14652884968677677.jpg" alt="">
+
+                        <div class="f_out"></div>
+                    </a>
+                    <a href="#" class="new_l mgsp" target="_blank">
+                        <img src="images/14752054449767660.jpg" alt="">
+
+                        <div class="f_out"></div>
+                    </a>
+                    <a href="#" class="new_r mgsp">
+                        <img src="images/14752052922282946.jpg" alt="">
+
+                        <div class="f_out">鲜花</div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+        <div class="fgx_line"></div>
+        <!--专卖店-->
+        <div style="clear:both;padding-top:40px">
+            <a href="#" class="new_l new_zmd" style="position:relative">
+                <img src="images/14652889582596601.jpg" alt="">
+
+                <div class="dz_cur"></div>
+            </a>
+            <a href="#" class="new_r new_zmd" style="position:relative">
+                <img src="images/14652889697737388.jpg" alt="">
+
+                <div class="dz_cur"></div>
+            </a>
+        </div>
+    </div>
+
+</div>
+</div>
+<!--结束-->
+<!--手风琴-->
+<div id="box">
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<div class="footer1">
+    <div class="footer_box">
+        <div class="new_l">
+            <a href=""><img src="images/14678074729716950.png"></a>
+
+            <div style="position:relative;margin-top:30px">
+                <a>关注我们</a>
+                <a style="position:absolute;left:80px;top:-2px" onMouseOver="showPic(this)"
+                   onMouseOut="closeShow(this)">
+                    <img src="images/14678074190065428.png"></a>
+                <a style="position:absolute;left:125px;top:-4px" href="#"> </a>
+            </div>
+
+        </div>
+        <ul>
+            <p>新手指南</p>
+            <li><a href="#">购物流程</a></li>
+            <li><a href="#">支付方式</a></li>
+            <li><a href="#">常见问题</a></li>
+        </ul>
+        <ul>
+            <p>售后服务</p>
+            <li><a href="#">退款说明</a></li>
+            <li><a href="#">保养物语</a></li>
+        </ul>
+        <ul>
+            <p>物流配送</p>
+            <li><a href="#">配送方式</a></li>
+            <li><a href="#">配送服务</a></li>
+        </ul>
+        <ul style="background:none">
+            <p>关于我们</p>
+            <li><a href="#">品牌介绍</a></li>
+            <li><a href="#">联系我们</a></li>
+            <li><a href="#">加入我们</a></li>
+        </ul>
+        <div class="new_r">
+            <a><img src="images/14652903743497300.jpg"></a>
+        </div>
+    </div>
+
+    <div class="foot-phone">
+        <a href="tel:4001314520"><img src="images/14661300632255147.jpg">
+        </a>
+    </div>
+    <div class="foot-nav">
+        京ICP备13007738号 京公网安备11010502023922 www.roseonly.com.cn；诺誓（北京）商业股份有限公司
+    </div>
+</div>
+<div id='preview' class='previewShowWindow' style="display:none;">
+    <img id='pi' src="images/QR-big.jpg" alt="扫描二维码"/>
+</div>
+</div>
+
+<div id="back-to-top">
+    <a class="go_top" href="javascript:backToTop();">
+        <img src="images/14703637041003761.svg"/>
+    </a>
+</div>
+<!--客服开始-->
+
+<div id="zhichiBtnBox">
+    <a id="zhichiBtn" href="javascript:;">
+        <img src="images/14703636967439422.svg">
+    </a>
+</div>
+<!--楼层跳跃-->
+<div style="position:absolute; left: 10px;bottom: 100px; position: fixed;">
+    <a href="#first" class="louceng" ></a><br/>
+    <a href="#second" class="louceng" ></a><br/>
+    <a href="#third"  class="louceng" ></a><br/>
+    <a href="#forth" class="louceng" ></a><br/>
+
+</div>
+
+
+<!--设置鼠标图像-->
+<!--<img src="images/" alt=""/>-->
+
+<!--<img src="images/鼠标.png" id="img1" style="position: absolute ;"/>-->
+
+<!--<script>-->
+    <!--document.onmousemove=function(e){-->
+        <!--var imgObj=document.getElementById("img1");-->
+        <!--e=e||window.event;-->
+        <!--imgObj.style.left= e.pageX+"px";-->
+        <!--imgObj.style.top= e.pageY+"px";-->
+    <!--}-->
+<!--</script>-->
+</body>
+<script>
+    var lis = document.getElementById("box").getElementsByTagName("li");
+    for (var i = 0; i < lis.length; i++) {
+        lis[i].style.backgroundImage = "url(images/" + (i + 1) + ".jpg)";
+    }
+</script>
+<script>
+    $(function () {
+        $("#box").children("li");
+        $("#box li").mouseenter(function () {
+//            $(this).css("background","url(images/"+($(this).index()+1)+".jpg)");
+            $(this).siblings("li").stop().animate({"width": 100}, 1000);
+            $(this).stop().animate({"width": 800}, 1000);
+        });
+        $("#box li").mouseleave(function () {
+            $("#box li").stop().animate({"width": 240}, 1000);
+        });
+
+
+    });
+
+</script>
+
+</html>
